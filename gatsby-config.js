@@ -13,7 +13,20 @@ module.exports = {
     image: "avatar.jpg"
   },
   plugins: [
+    // netlify cms
     "gatsby-plugin-netlify-cms",
+
+    // markdown support
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `markdown-pages`,
+      },
+    },
+    "gatsby-transformer-remark",
+
+    // seo
     "gatsby-plugin-advanced-sitemap",
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-react-helmet",
