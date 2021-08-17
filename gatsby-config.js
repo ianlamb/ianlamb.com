@@ -13,6 +13,7 @@ module.exports = {
     image: "avatar.jpg"
   },
   plugins: [
+    "gatsby-plugin-netlify-cms",
     "gatsby-plugin-advanced-sitemap",
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-react-helmet",
@@ -28,7 +29,6 @@ module.exports = {
         icon: `static/logo.png`,
       },
     },
-    "gatsby-plugin-offline",
-    "gatsby-plugin-netlify-cms"
+    "gatsby-plugin-offline"
   ],
 }
