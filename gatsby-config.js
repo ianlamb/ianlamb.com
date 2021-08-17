@@ -13,7 +13,6 @@ module.exports = {
     image: "avatar.jpg"
   },
   plugins: [
-    "gatsby-plugin-preact",
     "gatsby-plugin-advanced-sitemap",
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-react-helmet",
