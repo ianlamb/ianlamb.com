@@ -21,7 +21,7 @@ class BlogRoll extends React.Component {
                   <p className="post-meta">
                     <Link
                       className="title has-text-primary is-size-4"
-                      to={post.frontmatter.slug}
+                      to={post.frontmatter.path}
                     >
                       {post.frontmatter.title}
                     </Link>
@@ -35,7 +35,7 @@ class BlogRoll extends React.Component {
                   {post.excerpt}
                   <br />
                   <br />
-                  <Link className="button" to={post.frontmatter.slug}>
+                  <Link className="button" to={post.frontmatter.path}>
                     Keep Reading →
                   </Link>
                 </p>
@@ -67,8 +67,8 @@ const query = () => (
               excerpt(pruneLength: 400)
               id
               frontmatter {
+                path
                 title
-                slug
                 description
                 date(formatString: "MMMM DD, YYYY")
               }
