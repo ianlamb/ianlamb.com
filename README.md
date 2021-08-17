@@ -1,3 +1,22 @@
+# ianlamb.com Valhalla Redesign
+
+## Design
+
+### Content
+
+- Bio/Family
+- Career/Work/Resume
+- Contact/Github
+- Journal
+- Gaming
+- Adventure/World Map
+- Stats
+
+### Site Map
+
+TODO
+
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
