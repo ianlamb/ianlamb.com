@@ -1,25 +1,24 @@
 import styled, { css } from "styled-components"
+import theme from "../theme"
 
 export const Page = styled.div`
   position: relative;
   overflow: auto;
   min-height: 100vh;
+  background: ${theme.palette.background};
+  color: ${theme.palette.foreground}
 `
 
 export const Section = styled.section`
   position: relative;
   width: 100%;
-  min-height: 400px;
+  padding: ${theme.spacing(2)} 0;
   height: ${props => props.height || "auto"};
 `
 
 export const Container = styled.div`
-  position: absolute;
+  position: relative;
   max-width: 960px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -37,10 +36,6 @@ export const Button = styled.button`
     background: palevioletred;
     color: white;
   `}
-`
-
-export const Avatar = styled.img`
-  
 `
 
 export const Backdrop = styled.div`
@@ -73,4 +68,33 @@ export const CenterVertically = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+`
+
+export const CenterHorizontally = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`
+
+export const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: ${theme.spacing(5)};
+`
+
+export const Avatar = styled.img`
+  border-radius: 50%;
+  width: ${theme.avatarSize}px;
+  height: ${theme.avatarSize}px;
+`
+
+export const Title = styled.h1`
+  font-size: 3rem;
+  margin: ${theme.spacing(1)};
+`
+
+export const Description = styled.div`
+  font-size: 1rem;
 `

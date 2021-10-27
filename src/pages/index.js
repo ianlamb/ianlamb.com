@@ -1,34 +1,39 @@
 import React from "react"
-import styled from "styled-components"
 import SEO from "../components/seo"
 import {
+  Avatar,
   Page,
   Section,
   Container,
-  ShadowBox,
-  Backdrop,
-  CenterVertically,
-  Column
+  Header,
+  Title,
+  Description,
 } from "../components/common"
+import RandomQuote from "../components/RandomQuote"
+import BlogRoll from "../components/BlogRoll"
 import "../styles.css"
-
-const Title = styled.h1`
-  text-align: center;
-
-`
 
 export default function Home() {
   return (
     <Page>
       <SEO />
-      <Backdrop src="/bg1.jpg"></Backdrop>
-      <Section height="100vh">
+      <Section>
         <Container>
-          <CenterVertically>
-            <Column size="7">
-              <ShadowBox>Hello</ShadowBox>
-            </Column>
-          </CenterVertically>
+          <Header>
+            <Avatar src="/avatar.png" alt="avatar" />
+            <Title>Ian Lamb</Title>
+            <Description>Software Engineer building things at Improbable</Description>
+          </Header>
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <BlogRoll />
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <RandomQuote />
         </Container>
       </Section>
     </Page>
