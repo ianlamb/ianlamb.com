@@ -1,6 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from "styled-components"
+import theme from '../theme'
 import { Link, graphql, StaticQuery } from 'gatsby'
+
+const PostTitle = styled.h2`
+  font-size: 1.5rem;
+  margin: 0;
+  display: inline-block;
+`
+
+const PostDate = styled.div`
+  font-size: 0.8rem;
+  color: ${theme.palette.text.muted};
+`
 
 class BlogRoll extends React.Component {
   render() {
@@ -23,12 +36,13 @@ class BlogRoll extends React.Component {
                       className="title has-text-primary is-size-4"
                       to={post.frontmatter.path}
                     >
-                      {post.frontmatter.title}
+                      <PostTitle>
+                        {post.frontmatter.title}
+                      </PostTitle>
                     </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
+                    <PostDate>
                       {post.frontmatter.date}
-                    </span>
+                    </PostDate>
                   </p>
                 </header>
                 <p>

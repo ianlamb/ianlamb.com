@@ -21,7 +21,7 @@ export const Container = styled.div`
   max-width: 960px;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `
 
 export const Button = styled.button`
@@ -74,27 +74,4 @@ export const CenterHorizontally = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-`
-
-export const Header = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-top: ${theme.spacing(5)};
-`
-
-export const Avatar = styled.img`
-  border-radius: 50%;
-  width: ${theme.avatarSize}px;
-  height: ${theme.avatarSize}px;
-`
-
-export const Title = styled.h1`
-  font-size: 3rem;
-  margin: ${theme.spacing(1)};
-`
-
-export const Description = styled.div`
-  font-size: 1rem;
 `

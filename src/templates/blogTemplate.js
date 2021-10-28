@@ -1,4 +1,11 @@
 import React from 'react';
+import SEO from "../components/seo"
+import {
+  Page,
+  Section,
+  Container,
+} from "../components/common"
+import Header from "../components/Header"
 
 export default function Template({
   data,
@@ -6,16 +13,22 @@ export default function Template({
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
   return (
-    <div className="blog-post-container">
-      <div className="blog-post">
-        <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.date}</h2>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </div>
-    </div>
+    <Page>
+      <SEO />
+      <Container>
+        <Header compact={true} />
+      </Container>
+      <Section>
+        <Container>
+          <h1>{frontmatter.title}</h1>
+          <h2>{frontmatter.date}</h2>
+          <div
+            className="blog-post-content"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        </Container>
+      </Section>
+    </Page>
   );
 }
 

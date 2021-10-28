@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import theme from "../theme"
 
@@ -10,28 +10,58 @@ const quotes = [
     {
         text: "Wealth consists not in having great possessions, but in having few wants.",
         source: "Epictetus"
-    }
+    },
+    {
+        text: "Wealth consists not in having great possessions, but in having few wants.",
+        source: "Confucius"
+    },
+    {
+        text: "If you don’t like something, change it. If you can’t change it, change the way you think about it.",
+        source: "Mary Engelbreit"
+    },
+    {
+        text: "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
+        source: "Benjamin Franklin"
+    },
+    {
+        text: "What stands in the way becomes the way.",
+        source: "Marcus Aurelius"
+    },
+    {
+        text: "Between stimulus and response, there is a space. In that space is our power to choose our response.",
+        source: "Viktor Frankl"
+    },
+    // {
+    //     text: "",
+    //     source: ""
+    // }
 ]
 
+const getRandomQuote = () => quotes[Math.round(Math.random() * (quotes.length - 1))]
+
 const QuoteContainer = styled.div`
+    position: relative;
+    max-width: 600px;
     margin: ${theme.spacing(6)} auto;
+    padding: ${theme.spacing(2)};
+    cursor: pointer;
 
     &:before {
-        position: relative;
+        position: absolute;
         display: block;
         content: '';
         width: ${theme.quoteDecorationSize}px;
         left: calc(50% - ${theme.quoteDecorationSize/2}px);
-        top: -${theme.spacing(2)};
+        top: 0;
         border-top: 1px solid rgba(255, 255, 255, 0.5);
     }
     &:after {
-        position: relative;
+        position: absolute;
         display: block;
         content: '';
         width: ${theme.quoteDecorationSize}px;
         left: calc(50% - ${theme.quoteDecorationSize/2}px);
-        bottom: -${theme.spacing(2)};
+        top: 100%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     }
 `
@@ -45,9 +75,12 @@ const Source = styled.div`
 `
 
 const RandomQuote = () => {
-    const quote = quotes[Math.round(Math.random() * (quotes.length - 1))]
+    const [quote, setQuote] = useState(getRandomQuote())
+
+    const onClick = () => setQuote(getRandomQuote())
+
     return (
-        <QuoteContainer>
+        <QuoteContainer onClick={onClick}>
             <Quote>&ldquo;{quote.text}&rdquo;</Quote>
             <Source>&mdash;{quote.source}</Source>
         </QuoteContainer>
