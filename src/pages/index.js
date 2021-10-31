@@ -6,9 +6,11 @@ import {
   Container,
 } from "../components/common"
 import Header from "../components/Header"
-import RandomQuote from "../components/RandomQuote"
 import BlogRoll from "../components/BlogRoll"
+import RandomQuote from "../components/RandomQuote"
+import WorldMap from "../components/WorldMap"
 import "../styles.css"
+import theme from "../theme"
 
 export default function Home() {
   return (
@@ -16,6 +18,9 @@ export default function Home() {
       <SEO />
       <Container>
         <Header />
+        <div style={{textAlign:"center",marginTop:theme.spacing(2)}}>
+          <a href="https://github.com/ianlamb" target="_blank" rel="noopener">GitHub</a>
+        </div>
       </Container>
       <Section>
         <Container>
@@ -26,6 +31,9 @@ export default function Home() {
         <Container>
           <RandomQuote />
         </Container>
+      </Section>
+      <Section>
+        <WorldMap />
       </Section>
     </Page>
   )

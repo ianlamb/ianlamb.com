@@ -7,9 +7,8 @@
 - Bio/Family
 - Career/Work/Resume
 - Contact/Github
-- Journal
-- Gaming
-- Adventure/World Map
+- Blog
+- Travel Map
 - Stats
 
 ### Site Map

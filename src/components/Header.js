@@ -82,8 +82,8 @@ const Header = ({ compact = false }) => {
         <HeaderContainer compact={compact}>
             <AnchorHitbox href="/" />
             <Avatar size={compact ? 64 : 240}>
-                <AvatarCover src="/avatar.png" alt="avatar" />
-                <AvatarReveal src="/avatar2.png" alt="avatar" />
+                <AvatarCover src="/avatar.jpg" alt="avatar" />
+                <AvatarReveal src="/avatar2.jpg" alt="avatar" />
             </Avatar>
             <Title compact={compact}>Ian Lamb</Title>
             {!compact &&

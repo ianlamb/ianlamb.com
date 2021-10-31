@@ -12,7 +12,7 @@ const quotes = [
         source: "Epictetus"
     },
     {
-        text: "Wealth consists not in having great possessions, but in having few wants.",
+        text: "Life is really simple, but we insist on making it complicated.",
         source: "Confucius"
     },
     {
@@ -20,8 +20,8 @@ const quotes = [
         source: "Mary Engelbreit"
     },
     {
-        text: "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
-        source: "Benjamin Franklin"
+        text: "I hear and I forget. I see and I remember. I do and I understand.",
+        source: "Confucius"
     },
     {
         text: "What stands in the way becomes the way.",
@@ -72,6 +72,7 @@ const Quote = styled.div`
 `
 const Source = styled.div`
     font-size: 1rem;
+    color: ${theme.palette.text.muted};
 `
 
 const RandomQuote = () => {
