@@ -9,8 +9,8 @@ const theme = {
         text: {
             muted: '#c9c9c9',
             primary: 'rgba(225, 140, 190, 1)',
-        }
-    }
+        },
+    },
 }
 
 export default theme

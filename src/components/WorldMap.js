@@ -25,6 +25,8 @@ export const StatName = styled.dt`
     grid-row-start: 1;
     grid-row-end: 1;
     color: ${theme.palette.text.muted};
+    font-size: 0.85rem;
+    text-transform: uppercase;
 `
 
 export const StatValue = styled.dd`
