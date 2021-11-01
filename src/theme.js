@@ -8,6 +8,7 @@ const theme = {
         foreground: '#fffbf9',
         text: {
             muted: '#c9c9c9',
+            primary: 'rgba(225, 140, 190, 1)',
         }
     }
 }

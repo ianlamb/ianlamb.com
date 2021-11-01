@@ -19,7 +19,7 @@ export default function Home() {
       <Container>
         <Header />
         <div style={{textAlign:"center",marginTop:theme.spacing(2)}}>
-          <a href="https://github.com/ianlamb" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/ianlamb" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </Container>
       <Section>

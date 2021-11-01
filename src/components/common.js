@@ -14,6 +14,10 @@ export const Section = styled.section`
   width: 100%;
   padding: ${theme.spacing(2)} 0;
   height: ${props => props.height || "auto"};
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
 `
 
 export const Container = styled.div`

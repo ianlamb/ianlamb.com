@@ -1,35 +1,94 @@
 import React from 'react'
-import styled from "styled-components"
-import { Container } from "../components/common"
-import theme from "../theme"
+import styled from 'styled-components'
+import { Container } from '../components/common'
+import theme from '../theme'
 
 export const WorldImage = styled.img`
-    width: calc(100% - ${theme.spacing(16)});
+    display: block;
+    max-width: 1280px;
+    width: 100%;
     height: auto;
-    margin: ${theme.spacing(4)} ${theme.spacing(8)};
+    margin: 0 auto;
+    margin-top: ${theme.spacing(4)};
+`
+
+export const Stats = styled.dl`
+    width: 100%;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+`
+
+export const StatName = styled.dt`
+    grid-row-start: 1;
+    grid-row-end: 1;
+    color: ${theme.palette.text.muted};
+`
+
+export const StatValue = styled.dd`
+    grid-row-start: 2;
+    grid-row-end: 2;
+    margin: 0;
+    font-size: 1.25rem;
+`
+
+export const BigNumber = styled.span`
+    color: ${theme.palette.text.primary};
+    font-size: 2rem;
 `
 
 const WorldMap = () => {
     return (
         <div>
-          <Container>
-            <h2>Earthly Wanderings</h2>
-            <dl>
-              <dt>Born &amp; Raised</dt>
-              <dd>London, Ontario <img src="/flag-ca.png" height="15px" alt="canadian flag" /></dd>
-              <dt>Worked Abroad</dt>
-              <dd>Irvine, California <img src="/flag-us.png" height="15px" alt="american flag" /></dd>
-              <dt>Currently Live</dt>
-              <dd>Nelson, British Columbia <img src="/flag-ca.png" height="15px" alt="canadian flag" /></dd>
-              <dt>Countries Visited</dt>
-              <dd>11</dd>
-              <dt>Provinces Visited</dt>
-              <dd>6 of 10</dd>
-              <dt>States Visited</dt>
-              <dd>21 of 50</dd>
-            </dl>
-          </Container>
-          <WorldImage src="/world.svg" alt="world map" />
+            <Container>
+                <h2>Earthly Meanderings</h2>
+                <Stats>
+                    <StatName>Born &amp; Raised</StatName>
+                    <StatValue>
+                        <span>London, Ontario</span>{' '}
+                        <img
+                            src="/flag-ca.png"
+                            height="15px"
+                            alt="canadian flag"
+                        />
+                    </StatValue>
+                    <StatName>Worked Abroad</StatName>
+                    <StatValue>
+                        <span>Irvine, California</span>{' '}
+                        <img
+                            src="/flag-us.png"
+                            height="15px"
+                            alt="american flag"
+                        />
+                    </StatValue>
+                    <StatName>Currently Live</StatName>
+                    <StatValue>
+                        <span>Nelson, British Columbia</span>{' '}
+                        <img
+                            src="/flag-ca.png"
+                            height="15px"
+                            alt="canadian flag"
+                        />
+                    </StatValue>
+                </Stats>
+                <Stats>
+                    <StatName>Countries Visited</StatName>
+                    <StatValue>
+                        <BigNumber>11</BigNumber> of 195
+                    </StatValue>
+                    <StatName>Canadian Provinces Visited</StatName>
+                    <StatValue>
+                        <BigNumber>6</BigNumber> of 10
+                    </StatValue>
+                    <StatName>American States Visited</StatName>
+                    <StatValue>
+                        <BigNumber>21</BigNumber> of 50
+                    </StatValue>
+                </Stats>
+            </Container>
+            <WorldImage src="/world.svg" alt="world map" />
         </div>
     )
 }
