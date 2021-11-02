@@ -15,6 +15,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "dayjs": "^1.10.7",
     "gatsby": "^2.32.3",
     "gatsby-plugin-advanced-sitemap": "^1.5.5",
     "gatsby-plugin-manifest": "^2.4.25",

@@ -1,35 +1,39 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-import theme from "../theme"
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import theme from '../theme'
 
 const quotes = [
     {
-        text: "Instead of cursing the darkness, light a candle.",
-        source: "Benjamin Franklin"
+        text: 'Instead of cursing the darkness, light a candle.',
+        source: 'Benjamin Franklin',
     },
     {
-        text: "Wealth consists not in having great possessions, but in having few wants.",
-        source: "Epictetus"
+        text:
+            'Wealth consists not in having great possessions, but in having few wants.',
+        source: 'Epictetus',
     },
     {
-        text: "Life is really simple, but we insist on making it complicated.",
-        source: "Confucius"
+        text: 'Life is really simple, but we insist on making it complicated.',
+        source: 'Confucius',
     },
     {
-        text: "If you don’t like something, change it. If you can’t change it, change the way you think about it.",
-        source: "Mary Engelbreit"
+        text:
+            'If you don’t like something, change it. If you can’t change it, change the way you think about it.',
+        source: 'Mary Engelbreit',
     },
     {
-        text: "I hear and I forget. I see and I remember. I do and I understand.",
-        source: "Confucius"
+        text:
+            'I hear and I forget. I see and I remember. I do and I understand.',
+        source: 'Confucius',
     },
     {
-        text: "What stands in the way becomes the way.",
-        source: "Marcus Aurelius"
+        text: 'What stands in the way becomes the way.',
+        source: 'Marcus Aurelius',
     },
     {
-        text: "Between stimulus and response, there is a space. In that space is our power to choose our response.",
-        source: "Viktor Frankl"
+        text:
+            'Between stimulus and response, there is a space. In that space is our power to choose our response.',
+        source: 'Viktor Frankl',
     },
     // {
     //     text: "",
@@ -37,7 +41,8 @@ const quotes = [
     // }
 ]
 
-const getRandomQuote = () => quotes[Math.round(Math.random() * (quotes.length - 1))]
+const getRandomQuote = () =>
+    quotes[Math.round(Math.random() * (quotes.length - 1))]
 
 const QuoteContainer = styled.div`
     position: relative;
@@ -46,23 +51,30 @@ const QuoteContainer = styled.div`
     padding: ${theme.spacing(2)};
     cursor: pointer;
 
-    &:before {
-        position: absolute;
-        display: block;
-        content: '';
-        width: ${theme.quoteDecorationSize}px;
-        left: calc(50% - ${theme.quoteDecorationSize/2}px);
-        top: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.5);
-    }
+    &:before,
     &:after {
         position: absolute;
         display: block;
         content: '';
         width: ${theme.quoteDecorationSize}px;
-        left: calc(50% - ${theme.quoteDecorationSize/2}px);
-        top: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        left: calc(50% - ${theme.quoteDecorationSize / 2}px);
+        transition: border-color 0.15s ease-out;
+    }
+    &:before {
+        top: 0;
+        margin-top: -${theme.spacing(1)};
+        border-top: 1px solid rgba(255, 255, 255, 1);
+    }
+    &:after {
+        bottom: 0;
+        margin-bottom: -${theme.spacing(1)};
+        border-bottom: 1px solid rgba(255, 255, 255, 1);
+    }
+    &:hover {
+        &:before,
+        &:after {
+            border-color: ${theme.palette.text.primary};
+        }
     }
 `
 

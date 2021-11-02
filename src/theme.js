@@ -2,7 +2,7 @@ const spacingMultiplier = 8
 const theme = {
     spacing: (value) => `${value * spacingMultiplier}px`,
     spacingMultiplier,
-    quoteDecorationSize: 200,
+    quoteDecorationSize: 300,
     palette: {
         background: '#2c2c2c',
         foreground: '#fffbf9',
