@@ -10,6 +10,10 @@ export const WorldImage = styled.img`
     height: auto;
     margin: 0 auto;
     margin-top: ${theme.spacing(4)};
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        margin-top: 0;
+    }
 `
 
 export const Stats = styled.dl`
@@ -19,6 +23,10 @@ export const Stats = styled.dl`
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        display: block;
+    }
 `
 
 export const StatName = styled.dt`
@@ -34,6 +42,10 @@ export const StatValue = styled.dd`
     grid-row-end: 2;
     margin: 0;
     font-size: 1.25rem;
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        margin-bottom: ${theme.spacing(2)};
+    }
 `
 
 export const BigNumber = styled.span`

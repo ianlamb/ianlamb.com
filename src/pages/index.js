@@ -2,11 +2,12 @@ import React from 'react'
 import SEO from '../components/seo'
 import { Page, Section, Container } from '../components/common'
 import Header from '../components/Header'
-import BlogRoll from '../components/BlogRoll'
+import SocialLinks from '../components/SocialLinks'
+import About from '../components/About'
+// import BlogRoll from '../components/BlogRoll'
 import RandomQuote from '../components/RandomQuote'
 import WorldMap from '../components/WorldMap'
 import '../styles.css'
-import theme from '../theme'
 
 export default function Home() {
     return (
@@ -14,31 +15,18 @@ export default function Home() {
             <SEO />
             <Container>
                 <Header />
-                <div
-                    style={{ textAlign: 'center', marginTop: theme.spacing(2) }}
-                >
-                    <a
-                        href="https://www.instagram.com/ianlamb32/"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        Instagram
-                    </a>{' '}
-                    &bull;{' '}
-                    <a
-                        href="https://github.com/ianlamb"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        GitHub
-                    </a>
-                </div>
+                <SocialLinks />
             </Container>
             <Section>
                 <Container>
-                    <BlogRoll />
+                    <About />
                 </Container>
             </Section>
+            {/* <Section>
+                <Container>
+                    <BlogRoll />
+                </Container>
+            </Section> */}
             <Section>
                 <Container>
                     <RandomQuote />
