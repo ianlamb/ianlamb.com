@@ -12,7 +12,8 @@ const theme = {
         foreground: '#fffbf9',
         text: {
             muted: '#c9c9c9',
-            primary: 'rgba(225, 140, 190, 1)',
+            primary: 'rgb(254,72,170)',
+            secondary: 'rgb(49,165,246)',
         },
     },
 }

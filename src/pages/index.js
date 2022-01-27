@@ -1,6 +1,6 @@
 import React from 'react'
 import SEO from '../components/seo'
-import { Page, Section, Container } from '../components/common'
+import { Page, Section, Container, Parallax } from '../components/common'
 import Header from '../components/Header'
 import SocialLinks from '../components/SocialLinks'
 import About from '../components/About'
@@ -13,11 +13,12 @@ export default function Home() {
     return (
         <Page>
             <SEO />
+            <Parallax bg="/background.jpg" />
             <Container>
                 <Header />
                 <SocialLinks />
             </Container>
-            <Section>
+            <Section background="#2a2b48cf">
                 <Container>
                     <About />
                 </Container>

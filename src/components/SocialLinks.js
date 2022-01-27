@@ -3,7 +3,13 @@ import theme from '../theme'
 
 export default function SocialLinks() {
     return (
-        <div style={{ textAlign: 'center', marginTop: theme.spacing(2) }}>
+        <div
+            style={{
+                textAlign: 'center',
+                marginTop: theme.spacing(2),
+                marginBottom: theme.spacing(20),
+            }}
+        >
             <a
                 href="https://www.instagram.com/ianlamb32/"
                 target="_blank"

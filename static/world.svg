@@ -11,17 +11,13 @@
         stroke-opacity: 1;
         stroke-width: 0.5;
     }
-    .born {
-        fill: white;
-    }
-    .worked {
-        fill: white;
-    }
+    .born,
+    .worked,
     .lived {
-        fill: white;
+        fill: rgb(49,165,246);
     }
     .visited {
-        fill: rgb(195, 118, 166);
+        fill: rgb(254,72,170);
     }
     ]]>
         </style>

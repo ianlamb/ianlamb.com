@@ -8,7 +8,7 @@ export const HeaderContainer = styled.div`
     flex-direction: column;
     align-items: center;
     width: fit-content;
-    margin-top: ${theme.spacing(5)};
+    margin-top: ${theme.spacing(16)};
     margin-left: auto;
     margin-right: auto;
 

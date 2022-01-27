@@ -61,7 +61,13 @@ const WorldMap = () => {
                 <Stats>
                     <StatName>Born &amp; Raised</StatName>
                     <StatValue>
-                        <span>London, Ontario</span>{' '}
+                        <a
+                            href="https://goo.gl/maps/oPKaCohrrtDauBLb8"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            London, Ontario
+                        </a>{' '}
                         <img
                             src="/flag-ca.png"
                             height="15px"
@@ -70,7 +76,13 @@ const WorldMap = () => {
                     </StatValue>
                     <StatName>Worked Abroad</StatName>
                     <StatValue>
-                        <span>Irvine, California</span>{' '}
+                        <a
+                            href="https://goo.gl/maps/Z2wBtqBQ3gWsearF9"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            Irvine, California
+                        </a>{' '}
                         <img
                             src="/flag-us.png"
                             height="15px"
@@ -79,7 +91,13 @@ const WorldMap = () => {
                     </StatValue>
                     <StatName>Currently Live</StatName>
                     <StatValue>
-                        <span>Nelson, British Columbia</span>{' '}
+                        <a
+                            href="https://goo.gl/maps/ims1tRTAKx22h1Vh9"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            Nelson, British Columbia
+                        </a>{' '}
                         <img
                             src="/flag-ca.png"
                             height="15px"

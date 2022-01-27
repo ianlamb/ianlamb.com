@@ -4,16 +4,22 @@ import theme from '../theme'
 export const Page = styled.div`
     position: relative;
     overflow: auto;
-    min-height: 100vh;
-    background: ${theme.palette.background};
+    height: 100vh;
     color: ${theme.palette.foreground};
+    background: rgba(0, 0, 0, 0.5);
+
+    overflow-y: scroll;
+    perspective: 8px;
+    perspective-origin: 0%;
 `
 
 export const Section = styled.section`
     position: relative;
     width: 100%;
-    padding: ${theme.spacing(2)} 0;
+    padding: ${theme.spacing(4)} 0;
     height: ${(props) => props.height || 'auto'};
+
+    background: ${(props) => props.background};
 
     &:last-of-type {
         padding-bottom: 0;
@@ -81,4 +87,23 @@ export const CenterHorizontally = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
+`
+
+// (perspective — distance) / perspective = scaleFactor
+// eg. (8 – 3) / 8 = 0.625
+export const Parallax = styled.div`
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 1440px;
+    opacity: 0.5;
+    transform-origin: 0%;
+    transform: translateZ(-8px) scale(2);
+    z-index: -1;
+    background-image: url('${(props) => props.bg}');
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: 100%;
 `
