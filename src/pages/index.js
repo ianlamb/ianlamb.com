@@ -1,4 +1,7 @@
 import React from 'react'
+import NoSSR from 'react-no-ssr'
+
+import '../styles.css'
 import SEO from '../components/seo'
 import { Page, Section, Container, Parallax } from '../components/common'
 import Header from '../components/Header'
@@ -7,7 +10,6 @@ import About from '../components/About'
 // import BlogRoll from '../components/BlogRoll'
 import RandomQuote from '../components/RandomQuote'
 import WorldMap from '../components/WorldMap'
-import '../styles.css'
 
 export default function Home() {
     return (
@@ -30,7 +32,9 @@ export default function Home() {
             </Section> */}
             <Section>
                 <Container>
-                    <RandomQuote />
+                    <NoSSR>
+                        <RandomQuote />
+                    </NoSSR>
                 </Container>
             </Section>
             <Section>
