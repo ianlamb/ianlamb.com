@@ -2,7 +2,7 @@ import React from 'react'
 import NoSSR from 'react-no-ssr'
 
 import '../styles.css'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { Section, Container, Parallax } from '../components/common'
 import Header from '../components/Header'
