@@ -29,24 +29,6 @@ export const Section = styled.section(
 `
 )
 
-export const SectionTitle = styled.h2`
-    display: inline-block;
-    font-family: Oswald, sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 16px;
-    background: -webkit-linear-gradient(
-        -45deg,
-        #28d9c7,
-        #1aa3d9,
-        #138af2,
-        #0c70f2,
-        #0554f2
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-`
-
 export const Container = styled.div(
     ({ maxWidth }) => `
     position: relative;

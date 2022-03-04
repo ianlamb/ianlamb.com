@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import { shuffle } from 'lodash-es'
 
 const quotes = [
     {
@@ -34,60 +35,40 @@ const quotes = [
             'Between stimulus and response, there is a space. In that space is our power to choose our response.',
         source: 'Viktor Frankl',
     },
-    // {
-    //     text: "",
-    //     source: ""
-    // }
 ]
 
-const getRandomQuote = (currentQuote) => {
-    let quote
-    while (!quote || quote === currentQuote) {
-        quote = quotes[Math.round(Math.random() * (quotes.length - 1))]
-    }
-    return quote
-}
+const Quote = styled.div`
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic;
+    background: -webkit-linear-gradient(-75deg, #d368ff, #2aaefb);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.25s;
+`
 
 const QuoteContainer = styled.div(
     ({ theme }) => `
     position: relative;
-    max-width: 600px;
+    max-width: 760px;
     margin: ${theme.spacing(6)} auto;
-    padding: ${theme.spacing(2)};
+    padding: ${theme.spacing(4)} ${theme.spacing(14)};
     cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    clip-path: polygon(${theme.spacing(
+        10
+    )} 0, 100% 0, calc(100% - ${theme.spacing(10)}) 100%, 0 100%);
 
-    &:before,
-    &:after {
-        position: absolute;
-        display: block;
-        content: '';
-        width: ${theme.quoteDecorationSize}px;
-        left: calc(50% - ${theme.quoteDecorationSize / 2}px);
-        transition: border-color 0.15s ease-out;
-    }
-    &:before {
-        top: 0;
-        margin-top: -${theme.spacing(1)};
-        border-top: 1px solid rgba(255, 255, 255, 1);
-    }
-    &:after {
-        bottom: 0;
-        margin-bottom: -${theme.spacing(1)};
-        border-bottom: 1px solid rgba(255, 255, 255, 1);
-    }
     &:hover {
-        &:before,
-        &:after {
-            border-color: ${theme.palette.text.primary};
+        ${Quote} {
+            transform: translateY(-2px);
+            background-size: 150%;
         }
     }
 `
 )
 
-const Quote = styled.div`
-    font-size: 1.5rem;
-    font-style: italic;
-`
 const Source = styled.div(
     ({ theme }) => `
     font-size: 1rem;
@@ -96,9 +77,17 @@ const Source = styled.div(
 )
 
 const RandomQuote = () => {
-    const [quote, setQuote] = useState(getRandomQuote())
+    const shuffledQuotes = React.useRef(shuffle(quotes))
+    const [quoteIndex, setQuoteIndex] = React.useState(0)
+    const quote = shuffledQuotes.current[quoteIndex]
 
-    const onClick = () => setQuote(getRandomQuote(quote))
+    const nextQuote = () => {
+        setQuoteIndex(
+            quoteIndex < shuffledQuotes.current.length - 1 ? quoteIndex + 1 : 0
+        )
+    }
+
+    const onClick = () => nextQuote()
 
     return (
         <QuoteContainer onClick={onClick}>
