@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container } from '../components/common'
+import { Container, SectionTitle } from '../components/common'
 import theme from '../theme'
 
 export const WorldImage = styled.img`
@@ -57,7 +57,7 @@ const WorldMap = () => {
     return (
         <div>
             <Container>
-                <h2>Earthly Meanderings</h2>
+                <SectionTitle>Earthly Meanderings</SectionTitle>
                 <Stats>
                     <StatName>Born &amp; Raised</StatName>
                     <StatValue>
