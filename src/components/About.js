@@ -1,8 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BrainCircuit as Brain } from '@styled-icons/fluentui-system-regular/BrainCircuit'
-import { ShieldShaded as Shield } from '@styled-icons/bootstrap/ShieldShaded'
-import { Heart } from '@styled-icons/ionicons-solid/Heart'
 import theme from '../theme'
 
 const AboutContainer = styled.div``

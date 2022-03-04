@@ -6,8 +6,9 @@ import SEO from '../components/seo'
 import { Page, Section, Container, Parallax } from '../components/common'
 import Header from '../components/Header'
 import SocialLinks from '../components/SocialLinks'
-import About from '../components/About'
+// import About from '../components/About'
 // import BlogRoll from '../components/BlogRoll'
+import Projects from '../components/Projects'
 import RandomQuote from '../components/RandomQuote'
 import WorldMap from '../components/WorldMap'
 
@@ -22,7 +23,7 @@ export default function Home() {
             </Container>
             <Section background="#2a2b48cf">
                 <Container>
-                    <About />
+                    <Projects />
                 </Container>
             </Section>
             {/* <Section>
