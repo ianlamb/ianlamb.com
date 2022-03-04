@@ -41,8 +41,13 @@ const quotes = [
     // }
 ]
 
-const getRandomQuote = () =>
-    quotes[Math.round(Math.random() * (quotes.length - 1))]
+const getRandomQuote = (currentQuote) => {
+    let quote
+    while (!quote || quote === currentQuote) {
+        quote = quotes[Math.round(Math.random() * (quotes.length - 1))]
+    }
+    return quote
+}
 
 const QuoteContainer = styled.div`
     position: relative;
@@ -90,7 +95,7 @@ const Source = styled.div`
 const RandomQuote = () => {
     const [quote, setQuote] = useState(getRandomQuote())
 
-    const onClick = () => setQuote(getRandomQuote())
+    const onClick = () => setQuote(getRandomQuote(quote))
 
     return (
         <QuoteContainer onClick={onClick}>
