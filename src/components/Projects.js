@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import theme from '../theme'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import * as dayjs from 'dayjs'
-import * as relativeTime from 'dayjs/plugin/relativeTime'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.extend(relativeTime)
 
 const ProjectsContainer = styled.div`
