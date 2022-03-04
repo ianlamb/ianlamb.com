@@ -1,14 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import SEO from '../components/seo'
-import { Page, Section, Container } from '../components/common'
-import Header from '../components/Header'
-import theme from '../theme'
 
-const Post = styled.article`
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import { Section, Container } from '../components/common'
+import Header from '../components/Header'
+
+const Post = styled.article(
+    ({ theme }) => `
     margin-bottom: ${theme.spacing(10)};
 `
+)
 
 const PostTitle = styled.h2`
     font-size: 1.5rem;
@@ -16,10 +19,12 @@ const PostTitle = styled.h2`
     display: inline-block;
 `
 
-const PostDate = styled.div`
+const PostDate = styled.div(
+    ({ theme }) => `
     font-size: 0.8rem;
     color: ${theme.palette.text.muted};
 `
+)
 
 const PostContent = styled.div``
 
@@ -27,7 +32,7 @@ export default function Template({ data }) {
     const { markdownRemark } = data
     const { frontmatter, html } = markdownRemark
     return (
-        <Page>
+        <Layout>
             <SEO />
             <Container maxWidth={800}>
                 <Header compact={true} />
@@ -41,7 +46,7 @@ export default function Template({ data }) {
                     </Post>
                 </Section>
             </Container>
-        </Page>
+        </Layout>
     )
 }
 

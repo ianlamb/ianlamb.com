@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, SectionTitle } from '../components/common'
-import theme from '../theme'
 
-export const WorldImage = styled.img`
+import { Container, SectionTitle } from '../components/common'
+
+export const WorldImage = styled.img(
+    ({ theme }) => `
     display: block;
     max-width: 1280px;
     width: 100%;
@@ -15,8 +16,10 @@ export const WorldImage = styled.img`
         margin-top: 0;
     }
 `
+)
 
-export const Stats = styled.dl`
+export const Stats = styled.dl(
+    ({ theme }) => `
     width: 100%;
     display: grid;
     grid-template-columns: 33% 33% 33%;
@@ -28,16 +31,20 @@ export const Stats = styled.dl`
         display: block;
     }
 `
+)
 
-export const StatName = styled.dt`
+export const StatName = styled.dt(
+    ({ theme }) => `
     grid-row-start: 1;
     grid-row-end: 1;
     color: ${theme.palette.text.muted};
     font-size: 0.85rem;
     text-transform: uppercase;
 `
+)
 
-export const StatValue = styled.dd`
+export const StatValue = styled.dd(
+    ({ theme }) => `
     grid-row-start: 2;
     grid-row-end: 2;
     margin: 0;
@@ -47,11 +54,14 @@ export const StatValue = styled.dd`
         margin-bottom: ${theme.spacing(2)};
     }
 `
+)
 
-export const BigNumber = styled.span`
+export const BigNumber = styled.span(
+    ({ theme }) => `
     color: ${theme.palette.text.primary};
     font-size: 2rem;
 `
+)
 
 const WorldMap = () => {
     return (

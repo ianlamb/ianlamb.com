@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import theme from '../theme'
 
 const AboutContainer = styled.div``
 
 const Title = styled.h2``
 
-const Cards = styled.div`
+const Cards = styled.div(
+    ({ theme }) => `
     width: 100%;
     display: grid;
     grid-template-columns: 33% 33% 33%;
@@ -14,6 +14,7 @@ const Cards = styled.div`
     grid-column-gap: ${theme.spacing(4)};
     grid-row-gap: 0px;
 `
+)
 
 const CardBody = styled.div`
     width: 100%;

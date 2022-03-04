@@ -2,8 +2,9 @@ import React from 'react'
 import NoSSR from 'react-no-ssr'
 
 import '../styles.css'
+import Layout from '../components/layout'
 import SEO from '../components/seo'
-import { Page, Section, Container, Parallax } from '../components/common'
+import { Section, Container, Parallax } from '../components/common'
 import Header from '../components/Header'
 import SocialLinks from '../components/SocialLinks'
 // import About from '../components/About'
@@ -14,7 +15,7 @@ import WorldMap from '../components/WorldMap'
 
 export default function Home() {
     return (
-        <Page>
+        <Layout>
             <SEO />
             <Parallax bg="/background.jpg" />
             <Container>
@@ -41,6 +42,6 @@ export default function Home() {
             <Section>
                 <WorldMap />
             </Section>
-        </Page>
+        </Layout>
     )
 }

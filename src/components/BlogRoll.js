@@ -1,23 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import theme from '../theme'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.extend(relativeTime)
 
-const BlogRollContainer = styled.div`
+const BlogRollContainer = styled.div(
+    ({ theme }) => `
     margin-top: ${theme.spacing(4)};
 `
+)
 
-const PostsContainer = styled.div`
+const PostsContainer = styled.div(
+    ({ theme }) => `
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 1fr;
     grid-column-gap: ${theme.spacing(2)};
     grid-row-gap: ${theme.spacing(4)};
 `
+)
 
 const Post = styled.article``
 
@@ -27,10 +30,12 @@ const PostTitle = styled.h2`
     display: inline-block;
 `
 
-const PostDate = styled.div`
+const PostDate = styled.div(
+    ({ theme }) => `
     font-size: 0.8rem;
     color: ${theme.palette.text.muted};
 `
+)
 
 class BlogRoll extends React.Component {
     render() {

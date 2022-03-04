@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import theme from '../theme'
 
 const quotes = [
     {
@@ -49,7 +48,8 @@ const getRandomQuote = (currentQuote) => {
     return quote
 }
 
-const QuoteContainer = styled.div`
+const QuoteContainer = styled.div(
+    ({ theme }) => `
     position: relative;
     max-width: 600px;
     margin: ${theme.spacing(6)} auto;
@@ -82,15 +82,18 @@ const QuoteContainer = styled.div`
         }
     }
 `
+)
 
 const Quote = styled.div`
     font-size: 1.5rem;
     font-style: italic;
 `
-const Source = styled.div`
+const Source = styled.div(
+    ({ theme }) => `
     font-size: 1rem;
     color: ${theme.palette.text.muted};
 `
+)
 
 const RandomQuote = () => {
     const [quote, setQuote] = useState(getRandomQuote())

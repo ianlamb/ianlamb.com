@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import theme from '../theme'
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div(
+    ({ theme, compact }) => `
     position: relative;
     display: flex;
     flex-direction: column;
@@ -12,14 +12,16 @@ export const HeaderContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
 
-    ${(props) =>
-        props.compact &&
+    ${
+        compact &&
         `
         flex-direction: row;
         margin-left: 0;
         margin-right: 0;
-    `}
+    `
+    }
 `
+)
 
 export const AnchorHitbox = styled.a`
     position: absolute;
@@ -31,14 +33,13 @@ export const AnchorHitbox = styled.a`
     z-index: 3;
 `
 
-export const Avatar = styled.div`
+export const Avatar = styled.div(
+    ({ size }) => `
     position: relative;
     border-radius: 50%;
     overflow: hidden;
-    ${(props) => `
-    width: ${props.size}px;
-    height: ${props.size}px;
-  `}
+    width: ${size}px;
+    height: ${size}px;
 
     & > img {
         width: 100%;
@@ -49,6 +50,7 @@ export const Avatar = styled.div`
         opacity: 0.2;
     }
 `
+)
 
 export const AvatarCover = styled.img`
     position: relative;
@@ -66,7 +68,8 @@ export const AvatarReveal = styled.img`
     z-index: 1;
 `
 
-export const Title = styled.h1`
+export const Title = styled.h1(
+    ({ theme }) => `
     margin: ${theme.spacing(1)};
     font-size: 3rem;
     ${(props) =>
@@ -76,6 +79,7 @@ export const Title = styled.h1`
     margin-left: ${theme.spacing(2)};
   `}
 `
+)
 
 export const Description = styled.div`
     font-size: 1rem;

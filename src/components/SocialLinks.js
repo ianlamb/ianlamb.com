@@ -1,15 +1,15 @@
 import React from 'react'
-import theme from '../theme'
+import styled from 'styled-components'
+
+const Root = styled.div(({ theme }) => ({
+    textAlign: 'center',
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(20),
+}))
 
 export default function SocialLinks() {
     return (
-        <div
-            style={{
-                textAlign: 'center',
-                marginTop: theme.spacing(2),
-                marginBottom: theme.spacing(20),
-            }}
-        >
+        <Root>
             <a
                 href="https://www.instagram.com/ianlamb32/"
                 target="_blank"
@@ -25,6 +25,6 @@ export default function SocialLinks() {
             >
                 GitHub
             </a>
-        </div>
+        </Root>
     )
 }

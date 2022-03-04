@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
-import theme from '../theme'
 
-export const Page = styled.div`
+export const Page = styled.div(
+    ({ theme }) => `
     position: relative;
     overflow: auto;
     height: 100vh;
@@ -12,19 +12,22 @@ export const Page = styled.div`
     perspective: 8px;
     perspective-origin: 0%;
 `
+)
 
-export const Section = styled.section`
+export const Section = styled.section(
+    ({ theme, height, background }) => `
     position: relative;
     width: 100%;
     padding: ${theme.spacing(4)} 0;
-    height: ${(props) => props.height || 'auto'};
+    height: ${height || 'auto'};
 
-    background: ${(props) => props.background};
+    background: ${background};
 
     &:last-of-type {
         padding-bottom: 0;
     }
 `
+)
 
 export const SectionTitle = styled.h2`
     display: inline-block;
@@ -44,14 +47,16 @@ export const SectionTitle = styled.h2`
     -webkit-text-fill-color: transparent;
 `
 
-export const Container = styled.div`
+export const Container = styled.div(
+    ({ maxWidth }) => `
     position: relative;
-    max-width: ${(props) => props.maxWidth || 960}px;
+    max-width: ${maxWidth || 960}px;
     margin: 0 auto;
     padding: 0 16px;
     display: flex;
     flex-direction: column;
 `
+)
 
 export const Button = styled.button`
     background: transparent;
@@ -61,8 +66,8 @@ export const Button = styled.button`
     margin: 0.5em 1em;
     padding: 0.25em 1em;
 
-    ${(props) =>
-        props.primary &&
+    ${({ primary }) =>
+        primary &&
         css`
             background: palevioletred;
             color: white;
@@ -75,24 +80,26 @@ export const Backdrop = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background-image: url('${(props) => props.src}');
+  background-image: url('${({ src }) => src}');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 `
 
-export const ShadowBox = styled.div`
-    width: ${(props) => props.width || '100%'};
-    top: ${(props) => props.top || '0'};
+export const ShadowBox = styled.div(
+    ({ width, top }) => `
+    width: ${width || '100%'};
+    top: ${top || '0'};
     position: relative;
     padding: 8px 12px;
     color: rgba(255, 255, 255, 1);
     background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(0, 0, 0, 0.5);
 `
+)
 
 export const Column = styled.div`
-    flex-basis: calc(100% * ${(props) => parseInt(props.size, 10) / 12});
+    flex-basis: calc(100% * ${({ size }) => parseInt(size, 10) / 12});
 `
 
 export const CenterVertically = styled.div`
@@ -109,7 +116,8 @@ export const CenterHorizontally = styled.div`
 
 // (perspective — distance) / perspective = scaleFactor
 // eg. (8 – 3) / 8 = 0.625
-export const Parallax = styled.div`
+export const Parallax = styled.div(
+    ({ bg }) => `
     position: absolute;
     top: 0;
     right: 0;
@@ -120,8 +128,9 @@ export const Parallax = styled.div`
     transform-origin: 0%;
     transform: translateZ(-8px) scale(2);
     z-index: -1;
-    background-image: url('${(props) => props.bg}');
+    background-image: url('${bg}');
     background-position: cover;
     background-repeat: no-repeat;
     background-size: 100%;
 `
+)
