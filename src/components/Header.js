@@ -8,10 +8,10 @@ export const HeaderContainer = styled.div(
     flex-direction: column;
     align-items: center;
     width: fit-content;
-    margin-top: ${theme.spacing(16)};
+    margin-top: ${theme.spacing(20)};
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 1);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 
     ${
         compact &&

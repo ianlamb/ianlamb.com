@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
-import { Section, Container } from '../components/common'
+import { Page, Section, Container } from '../components/common'
 import Header from '../components/Header'
 
 const Post = styled.article(
@@ -33,23 +33,25 @@ export default function Template({ data }) {
     const { frontmatter, html } = markdownRemark
     return (
         <Layout>
-            <SEO
-                title={frontmatter.title}
-                description={frontmatter.description}
-                article={true}
-            />
-            <Container maxWidth={800}>
-                <Header compact={true} />
-                <Section>
-                    <Post>
-                        <PostTitle>{frontmatter.title}</PostTitle>
-                        <PostDate>{frontmatter.date}</PostDate>
-                        <PostContent
-                            dangerouslySetInnerHTML={{ __html: html }}
-                        />
-                    </Post>
-                </Section>
-            </Container>
+            <Page>
+                <SEO
+                    title={frontmatter.title}
+                    description={frontmatter.description}
+                    article={true}
+                />
+                <Container maxWidth={800}>
+                    <Header compact={true} />
+                    <Section>
+                        <Post>
+                            <PostTitle>{frontmatter.title}</PostTitle>
+                            <PostDate>{frontmatter.date}</PostDate>
+                            <PostContent
+                                dangerouslySetInnerHTML={{ __html: html }}
+                            />
+                        </Post>
+                    </Section>
+                </Container>
+            </Page>
         </Layout>
     )
 }

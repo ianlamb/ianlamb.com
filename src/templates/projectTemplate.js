@@ -2,16 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
+import { useTheme } from '../theme'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
-import { Section, Container } from '../components/common'
+import { Page, Section, Container } from '../components/common'
 import Header from '../components/Header'
-
-const Background = styled.div(
-    ({ theme }) => `
-    background: ${theme.palette.magicGradient};
-`
-)
 
 const Project = styled.article(
     ({ theme }) => `
@@ -88,9 +83,11 @@ const BackLink = styled.a(
 export default function Template({ data }) {
     const { markdownRemark } = data
     const { frontmatter, html } = markdownRemark
+    const theme = useTheme()
+
     return (
         <Layout>
-            <Background>
+            <Page background={theme.palette.magicGradient}>
                 <SEO
                     title={frontmatter.title}
                     description={frontmatter.description}
@@ -152,7 +149,9 @@ export default function Template({ data }) {
                             </Sidebar>
                             <Content>
                                 <MarkdownContent
-                                    dangerouslySetInnerHTML={{ __html: html }}
+                                    dangerouslySetInnerHTML={{
+                                        __html: html,
+                                    }}
                                 />
 
                                 <BackLink href="/">&#10229; Back</BackLink>
@@ -160,7 +159,7 @@ export default function Template({ data }) {
                         </Project>
                     </Container>
                 </Section>
-            </Background>
+            </Page>
         </Layout>
     )
 }

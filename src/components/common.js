@@ -95,24 +95,3 @@ export const CenterHorizontally = styled.div`
     justify-content: center;
     width: 100%;
 `
-
-// (perspective — distance) / perspective = scaleFactor
-// eg. (8 – 3) / 8 = 0.625
-export const Parallax = styled.div(
-    ({ bg }) => `
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: 1440px;
-    opacity: 0.7;
-    transform-origin: 0%;
-    transform: translateZ(-8px) scale(2);
-    z-index: -1;
-    background-image: url('${bg}');
-    background-position: cover;
-    background-repeat: no-repeat;
-    background-size: 100%;
-`
-)

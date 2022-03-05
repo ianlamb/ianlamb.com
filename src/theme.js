@@ -19,4 +19,6 @@ const theme = {
     },
 }
 
+export const useTheme = () => theme
+
 export default theme
