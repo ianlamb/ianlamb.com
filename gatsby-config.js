@@ -13,6 +13,9 @@ module.exports = {
         image: 'avatar.jpg',
     },
     plugins: [
+        // fix FOUC with styled-components
+        'gatsby-plugin-styled-components',
+
         // netlify cms
         'gatsby-plugin-netlify-cms',
 
