@@ -1,35 +1,39 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import theme from '../theme'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.extend(relativeTime)
 
-const ProjectsContainer = styled.div`
+const ProjectsContainer = styled.div(
+    ({ theme }) => `
     margin-top: ${theme.spacing(4)};
 `
+)
 
-const PostTitle = styled.h2`
-    font-size: 1.25rem;
+const PostTitle = styled.h3`
     margin: 0;
     display: inline-block;
 `
 
-const PostDate = styled.div`
+const PostDate = styled.div(
+    ({ theme }) => `
     font-size: 0.8rem;
     color: ${theme.palette.text.muted};
 `
+)
 
-const Cards = styled.div`
+const Cards = styled.div(
+    ({ theme }) => `
     width: 100%;
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: ${theme.spacing(4)};
-    grid-row-gap: 0px;
+    grid-row-gap: ${theme.spacing(4)};
 `
+)
 
 const CardBody = styled.div`
     width: 100%;
@@ -59,7 +63,8 @@ const CardImage = styled.img`
     border: 0;
 `
 
-const Card = styled.div`
+const Card = styled.div(
+    ({ theme }) => `
     position: relative;
     overflow: hidden;
 
@@ -71,6 +76,7 @@ const Card = styled.div`
         }
     }
 `
+)
 
 const CardLink = styled(Link)`
     display: block;
@@ -91,7 +97,7 @@ class Projects extends React.Component {
 
         return (
             <ProjectsContainer>
-                <h2>Things I Made</h2>
+                <h2>Side Projects</h2>
                 <Cards>
                     {posts &&
                         posts.map(({ node: post }) => (
@@ -149,6 +155,7 @@ const query = () => (
                                 description
                                 date
                                 image
+                                url
                             }
                         }
                     }

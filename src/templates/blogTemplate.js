@@ -9,7 +9,7 @@ import Header from '../components/Header'
 
 const Post = styled.article(
     ({ theme }) => `
-    margin-bottom: ${theme.spacing(10)};
+    margin-bottom: ${theme.spacing(5)};
 `
 )
 
@@ -33,7 +33,11 @@ export default function Template({ data }) {
     const { frontmatter, html } = markdownRemark
     return (
         <Layout>
-            <SEO />
+            <SEO
+                title={frontmatter.title}
+                description={frontmatter.description}
+                article={true}
+            />
             <Container maxWidth={800}>
                 <Header compact={true} />
                 <Section>
@@ -58,6 +62,7 @@ export const pageQuery = graphql`
                 date(formatString: "MMMM DD, YYYY")
                 path
                 title
+                description
             }
         }
     }

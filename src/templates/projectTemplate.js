@@ -7,45 +7,160 @@ import SEO from '../components/seo'
 import { Section, Container } from '../components/common'
 import Header from '../components/Header'
 
-const Post = styled.article(
+const Background = styled.div(
     ({ theme }) => `
+    background: ${theme.palette.magicGradient};
+`
+)
+
+const Project = styled.article(
+    ({ theme }) => `
+    display: flex;
+    flex-direction: row;
+    margin-bottom: ${theme.spacing(5)};
+`
+)
+
+const Sidebar = styled.div(
+    ({ theme }) => `
+    flex-basis: 240px;
+    padding: ${theme.spacing(2)};
+    margin-bottom: ${theme.spacing(10)};
+    background: rgba(0, 0, 0, 0.5);
+`
+)
+
+const Content = styled.div(
+    ({ theme }) => `
+    flex: 1;
+    margin-left: ${theme.spacing(3)};
     margin-bottom: ${theme.spacing(10)};
 `
 )
 
-const PostTitle = styled.h2`
-    font-size: 1.5rem;
-    margin: 0;
-    display: inline-block;
-`
-
-const PostDate = styled.div(
+const MarkdownContent = styled.div(
     ({ theme }) => `
-    font-size: 0.8rem;
-    color: ${theme.palette.text.muted};
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 0;
+    }
 `
 )
 
-const PostContent = styled.div``
+const Thumbnail = styled.img`
+    width: 100%;
+    height: auto;
+    border: 0;
+`
+
+const Metadata = styled.dl(
+    ({ theme }) => `
+    margin: 0;
+`
+)
+
+const Label = styled.dt(
+    ({ theme }) => `
+    margin: 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: ${theme.palette.text.muted};
+    margin-bottom: 2px;
+`
+)
+
+const Value = styled.dd(
+    ({ theme }) => `
+    margin: 0;
+    font-size: 1rem;
+    &:not(:last-of-type) {
+        margin-bottom: ${theme.spacing(2)};
+    }
+`
+)
+
+const BackLink = styled.a(
+    ({ theme }) => `
+    float: right;
+    margin-top: ${theme.spacing(2)};
+`
+)
 
 export default function Template({ data }) {
     const { markdownRemark } = data
     const { frontmatter, html } = markdownRemark
     return (
         <Layout>
-            <SEO />
-            <Container maxWidth={800}>
-                <Header compact={true} />
-                <Section>
-                    <Post>
-                        <PostTitle>{frontmatter.title}</PostTitle>
-                        <PostDate>{frontmatter.date}</PostDate>
-                        <PostContent
-                            dangerouslySetInnerHTML={{ __html: html }}
-                        />
-                    </Post>
+            <Background>
+                <SEO
+                    title={frontmatter.title}
+                    description={frontmatter.description}
+                    image={frontmatter.image}
+                    article={true}
+                />
+                <Container maxWidth={800}>
+                    <Header compact={true} />
+                </Container>
+                <Section background="#34353ecf">
+                    <Container maxWidth={800}>
+                        <Project>
+                            <Sidebar>
+                                <Metadata>
+                                    <Label>Project</Label>
+                                    <Value>{frontmatter.title || '?'}</Value>
+                                    <Label>Published</Label>
+                                    <Value>{frontmatter.date || '?'}</Value>
+                                    {frontmatter.source && (
+                                        <>
+                                            <Label>Source</Label>
+                                            <Value>
+                                                <a
+                                                    href={frontmatter.source}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                >
+                                                    GitHub
+                                                </a>
+                                            </Value>
+                                        </>
+                                    )}
+                                    {frontmatter.url && (
+                                        <>
+                                            <Label>Artifact</Label>
+                                            <Value>
+                                                <a
+                                                    href={frontmatter.url}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                >
+                                                    Visit Live Site
+                                                </a>
+                                            </Value>
+                                        </>
+                                    )}
+                                    {frontmatter.image && (
+                                        <>
+                                            <Label>Preview</Label>
+                                            <Value>
+                                                <Thumbnail
+                                                    src={frontmatter.image}
+                                                    alt={`Image for ${frontmatter.title}`}
+                                                />
+                                            </Value>
+                                        </>
+                                    )}
+                                </Metadata>
+                            </Sidebar>
+                            <Content>
+                                <MarkdownContent
+                                    dangerouslySetInnerHTML={{ __html: html }}
+                                />
+
+                                <BackLink href="/">&#10229; Back</BackLink>
+                            </Content>
+                        </Project>
+                    </Container>
                 </Section>
-            </Container>
+            </Background>
         </Layout>
     )
 }
@@ -58,6 +173,10 @@ export const pageQuery = graphql`
                 date(formatString: "MMMM DD, YYYY")
                 path
                 title
+                description
+                image
+                url
+                source
             }
         }
     }

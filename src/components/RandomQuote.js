@@ -37,16 +37,18 @@ const quotes = [
     },
 ]
 
-const Quote = styled.div`
+const Quote = styled.div(
+    ({ theme }) => `
     font-size: 1.5rem;
     font-weight: bold;
     font-style: italic;
-    background: -webkit-linear-gradient(-75deg, #d368ff, #2aaefb);
+    background: ${theme.palette.magicGradient};
     background-size: 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: all 0.25s;
 `
+)
 
 const QuoteContainer = styled.div(
     ({ theme }) => `

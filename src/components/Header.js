@@ -11,6 +11,7 @@ export const HeaderContainer = styled.div(
     margin-top: ${theme.spacing(16)};
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 1);
 
     ${
         compact &&
@@ -18,6 +19,8 @@ export const HeaderContainer = styled.div(
         flex-direction: row;
         margin-left: 0;
         margin-right: 0;
+        margin-top: ${theme.spacing(2)};
+        margin-bottom: ${theme.spacing(2)};
     `
     }
 `
@@ -69,20 +72,22 @@ export const AvatarReveal = styled.img`
 `
 
 export const Title = styled.h1(
-    ({ theme }) => `
+    ({ theme, compact }) => `
     margin: ${theme.spacing(1)};
     font-size: 3rem;
-    ${(props) =>
-        props.compact &&
+    ${
+        compact &&
         `
     font-size: 2rem;
     margin-left: ${theme.spacing(2)};
-  `}
+    border: none;
+  `
+    }
 `
 )
 
 export const Description = styled.div`
-    font-size: 1rem;
+    font-size: 1.2rem;
 `
 
 const Header = ({ compact = false }) => {

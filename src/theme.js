@@ -15,6 +15,7 @@ const theme = {
             primary: 'rgb(254,72,170)',
             secondary: 'rgb(49,165,246)',
         },
+        magicGradient: '-webkit-linear-gradient(-75deg, #d368ff, #2aaefb)',
     },
 }
 

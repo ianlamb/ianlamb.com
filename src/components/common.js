@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components'
 
 export const Page = styled.div(
-    ({ theme }) => `
+    ({ theme, background = 'none' }) => `
     position: relative;
     overflow: auto;
     height: 100vh;
     color: ${theme.palette.foreground};
-    background: rgba(0, 0, 0, 0.5);
+    background: ${background};
 
     overflow-y: scroll;
     perspective: 8px;
@@ -106,7 +106,7 @@ export const Parallax = styled.div(
     left: 0;
     width: 100%;
     height: 1440px;
-    opacity: 0.5;
+    opacity: 0.7;
     transform-origin: 0%;
     transform: translateZ(-8px) scale(2);
     z-index: -1;
