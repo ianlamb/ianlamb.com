@@ -43,15 +43,13 @@ const Cards = styled.div(
 `
 )
 
-const CardBody = styled.div`
-    width: 100%;
-    height: 100%;
-    transition: all 0.2s;
-`
+const CardBody = styled.div``
 
 const CardImageContainer = styled.div`
     position: relative;
     margin-bottom: 8px;
+    transition: all 0.25s ease-out;
+
     &:before {
         display: block;
         content: '';
@@ -61,7 +59,7 @@ const CardImageContainer = styled.div`
         right: 0;
         bottom: 0;
         background: rgba(0, 0, 0, 0.3);
-        transition: background 0.5s;
+        transition: background 0.25s ease-out;
     }
 `
 
@@ -74,10 +72,11 @@ const CardImage = styled.img`
 const Card = styled.div(
     ({ theme }) => `
     position: relative;
-    overflow: hidden;
 
     &:hover {
         ${CardImageContainer} {
+            transform: translateY(-2px);
+
             &:before {
                 background: rgba(0, 0, 0, 0);
             }

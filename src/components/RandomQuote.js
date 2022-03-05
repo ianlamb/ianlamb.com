@@ -46,7 +46,7 @@ const Quote = styled.div(
     background-size: 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: all 0.25s;
+    transition: all 0.25s ease;
 `
 )
 

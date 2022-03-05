@@ -40,6 +40,7 @@ export const Avatar = styled.div(
     overflow: hidden;
     width: ${size}px;
     height: ${size}px;
+    transition: all 0.5s ease;
 
     & > img {
         width: 100%;
@@ -47,7 +48,8 @@ export const Avatar = styled.div(
     }
 
     ${AnchorHitbox}:hover + & > img:first-child {
-        opacity: 0.2;
+        opacity: 0.35;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
 `
 )
@@ -55,18 +57,22 @@ export const Avatar = styled.div(
 export const AvatarCover = styled.img`
     position: relative;
     z-index: 2;
-    opacity: 1;
-    transition: opacity 0.5s ease;
+    opacity: 0.65;
+    transition: all 0.5s ease;
+    clip-path: polygon(50% 0, 150% 0, 50% 100%, -50% 100%);
 `
 
-export const AvatarReveal = styled.img`
+export const AvatarReveal = styled.img(
+    ({ theme }) => `
     position: absolute;
+    opacity: 0.8;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 1;
 `
+)
 
 export const Title = styled.h1(
     ({ theme, compact }) => `
@@ -99,7 +105,7 @@ const Header = ({ compact = false }) => {
     return (
         <Root compact={compact}>
             <AnchorHitbox href="/" />
-            <Avatar size={compact ? 64 : 240}>
+            <Avatar size={compact ? 64 : 200}>
                 <AvatarCover src="/avatar.jpg" alt="avatar" />
                 <AvatarReveal src="/avatar2.jpg" alt="avatar" />
             </Avatar>
