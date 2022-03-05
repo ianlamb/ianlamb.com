@@ -4,7 +4,6 @@ import styled from 'styled-components'
 const Root = styled.div(({ theme }) => ({
     textAlign: 'center',
     marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(20),
 }))
 
 export default function SocialLinks() {

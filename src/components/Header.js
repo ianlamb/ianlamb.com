@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const HeaderContainer = styled.div(
+export const Root = styled.div(
     ({ theme, compact }) => `
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: fit-content;
-    margin-top: ${theme.spacing(20)};
     margin-left: auto;
     margin-right: auto;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
@@ -19,8 +18,6 @@ export const HeaderContainer = styled.div(
         flex-direction: row;
         margin-left: 0;
         margin-right: 0;
-        margin-top: ${theme.spacing(2)};
-        margin-bottom: ${theme.spacing(2)};
     `
     }
 `
@@ -75,6 +72,7 @@ export const Title = styled.h1(
     ({ theme, compact }) => `
     margin: ${theme.spacing(1)};
     font-size: 3rem;
+
     ${
         compact &&
         `
@@ -86,13 +84,20 @@ export const Title = styled.h1(
 `
 )
 
-export const Description = styled.div`
+export const Description = styled.div(
+    ({ theme }) => `
     font-size: 1.2rem;
+    margin-top: ${theme.spacing(1)};
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        font-size: 1rem;
+    }
 `
+)
 
 const Header = ({ compact = false }) => {
     return (
-        <HeaderContainer compact={compact}>
+        <Root compact={compact}>
             <AnchorHitbox href="/" />
             <Avatar size={compact ? 64 : 240}>
                 <AvatarCover src="/avatar.jpg" alt="avatar" />
@@ -104,7 +109,7 @@ const Header = ({ compact = false }) => {
                     Software Engineer building things at Improbable
                 </Description>
             )}
-        </HeaderContainer>
+        </Root>
     )
 }
 

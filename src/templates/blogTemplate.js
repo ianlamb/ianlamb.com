@@ -7,6 +7,13 @@ import SEO from '../components/seo'
 import { Page, Section, Container } from '../components/common'
 import Header from '../components/Header'
 
+const HeaderContainer = styled.div(
+    ({ theme }) => `
+    margin-top: ${theme.spacing(2)};
+    margin-bottom: ${theme.spacing(2)};
+    `
+)
+
 const Post = styled.article(
     ({ theme }) => `
     margin-bottom: ${theme.spacing(5)};
@@ -39,8 +46,10 @@ export default function Template({ data }) {
                     description={frontmatter.description}
                     article={true}
                 />
-                <Container maxWidth={800}>
-                    <Header compact={true} />
+                <Container maxWidth={800} gutters={false}>
+                    <HeaderContainer>
+                        <Header compact={true} />
+                    </HeaderContainer>
                     <Section>
                         <Post>
                             <PostTitle>{frontmatter.title}</PostTitle>

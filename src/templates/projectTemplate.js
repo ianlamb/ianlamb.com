@@ -8,19 +8,38 @@ import SEO from '../components/seo'
 import { Page, Section, Container } from '../components/common'
 import Header from '../components/Header'
 
+const HeaderContainer = styled.div(
+    ({ theme }) => `
+    margin: ${theme.spacing(2)};
+    `
+)
+
 const Project = styled.article(
     ({ theme }) => `
     display: flex;
     flex-direction: row;
     margin-bottom: ${theme.spacing(5)};
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        flex-direction: column;
+    }
+`
+)
+
+const SidebarContainer = styled.div(
+    ({ theme }) => `
+    flex-basis: 240px;
+    margin-bottom: ${theme.spacing(2)};
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        margin-bottom: ${theme.spacing(2)};
+    }
 `
 )
 
 const Sidebar = styled.div(
     ({ theme }) => `
-    flex-basis: 240px;
     padding: ${theme.spacing(2)};
-    margin-bottom: ${theme.spacing(10)};
     background: rgba(0, 0, 0, 0.5);
 `
 )
@@ -28,8 +47,10 @@ const Sidebar = styled.div(
 const Content = styled.div(
     ({ theme }) => `
     flex: 1;
-    margin-left: ${theme.spacing(3)};
-    margin-bottom: ${theme.spacing(10)};
+    margin-left: ${theme.spacing(2)};
+    margin-right: ${theme.spacing(2)};
+    margin-bottom: ${theme.spacing(2)};
+    min-height: calc(100vh - 96px - ${theme.spacing(11)});
 `
 )
 
@@ -94,59 +115,67 @@ export default function Template({ data }) {
                     image={frontmatter.image}
                     article={true}
                 />
-                <Container maxWidth={800}>
-                    <Header compact={true} />
+                <Container maxWidth={800} gutters={false}>
+                    <HeaderContainer>
+                        <Header compact={true} />
+                    </HeaderContainer>
                 </Container>
                 <Section background="#34353ecf">
-                    <Container maxWidth={800}>
+                    <Container maxWidth={800} gutters={false}>
                         <Project>
-                            <Sidebar>
-                                <Metadata>
-                                    <Label>Project</Label>
-                                    <Value>{frontmatter.title || '?'}</Value>
-                                    <Label>Published</Label>
-                                    <Value>{frontmatter.date || '?'}</Value>
-                                    {frontmatter.source && (
-                                        <>
-                                            <Label>Source</Label>
-                                            <Value>
-                                                <a
-                                                    href={frontmatter.source}
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                >
-                                                    GitHub
-                                                </a>
-                                            </Value>
-                                        </>
-                                    )}
-                                    {frontmatter.url && (
-                                        <>
-                                            <Label>Artifact</Label>
-                                            <Value>
-                                                <a
-                                                    href={frontmatter.url}
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                >
-                                                    Visit Live Site
-                                                </a>
-                                            </Value>
-                                        </>
-                                    )}
-                                    {frontmatter.image && (
-                                        <>
-                                            <Label>Preview</Label>
-                                            <Value>
-                                                <Thumbnail
-                                                    src={frontmatter.image}
-                                                    alt={`Image for ${frontmatter.title}`}
-                                                />
-                                            </Value>
-                                        </>
-                                    )}
-                                </Metadata>
-                            </Sidebar>
+                            <SidebarContainer>
+                                <Sidebar>
+                                    <Metadata>
+                                        <Label>Project</Label>
+                                        <Value>
+                                            {frontmatter.title || '?'}
+                                        </Value>
+                                        <Label>Published</Label>
+                                        <Value>{frontmatter.date || '?'}</Value>
+                                        {frontmatter.source && (
+                                            <>
+                                                <Label>Source</Label>
+                                                <Value>
+                                                    <a
+                                                        href={
+                                                            frontmatter.source
+                                                        }
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                    >
+                                                        GitHub
+                                                    </a>
+                                                </Value>
+                                            </>
+                                        )}
+                                        {frontmatter.url && (
+                                            <>
+                                                <Label>Artifact</Label>
+                                                <Value>
+                                                    <a
+                                                        href={frontmatter.url}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                    >
+                                                        Visit Live Site
+                                                    </a>
+                                                </Value>
+                                            </>
+                                        )}
+                                        {frontmatter.image && (
+                                            <>
+                                                <Label>Preview</Label>
+                                                <Value>
+                                                    <Thumbnail
+                                                        src={frontmatter.image}
+                                                        alt={`Image for ${frontmatter.title}`}
+                                                    />
+                                                </Value>
+                                            </>
+                                        )}
+                                    </Metadata>
+                                </Sidebar>
+                            </SidebarContainer>
                             <Content>
                                 <MarkdownContent
                                     dangerouslySetInnerHTML={{

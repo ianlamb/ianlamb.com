@@ -68,6 +68,14 @@ const QuoteContainer = styled.div(
             background-size: 150%;
         }
     }
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        clip-path: none;
+        width: 100%;
+        max-width: none;
+        padding: ${theme.spacing(6)} ${theme.spacing(4)};
+        margin: 0 auto;
+    }
 `
 )
 

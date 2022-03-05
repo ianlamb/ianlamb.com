@@ -26,15 +26,19 @@ export const Section = styled.section(
     &:last-of-type {
         padding-bottom: 0;
     }
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        padding: 0;
+    }
 `
 )
 
 export const Container = styled.div(
-    ({ maxWidth }) => `
+    ({ theme, maxWidth, gutters = true }) => `
     position: relative;
     max-width: ${maxWidth || 960}px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 ${gutters ? theme.spacing(2) : '0'};
     display: flex;
     flex-direction: column;
 `

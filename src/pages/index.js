@@ -15,10 +15,22 @@ import Projects from '../components/Projects'
 import RandomQuote from '../components/RandomQuote'
 import WorldMap from '../components/WorldMap'
 
+export const HeaderContainer = styled.div(
+    ({ theme }) => `
+    margin-top: ${theme.spacing(20)};
+    margin-bottom: ${theme.spacing(20)};
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        margin-top: ${theme.spacing(10)};
+        margin-bottom: ${theme.spacing(10)};
+    }
+    `
+)
+
 // (perspective — distance) / perspective = scaleFactor
 // eg. (8 – 3) / 8 = 0.625
 export const Parallax = styled.div(
-    ({ bg }) => `
+    ({ theme, bg }) => `
     position: absolute;
     top: 0;
     right: 0;
@@ -33,6 +45,16 @@ export const Parallax = styled.div(
     background-size: cover;
     background-repeat: no-repeat;
     background-size: 100%;
+
+    @media only screen and (max-width: ${theme.breakpoints.tablet}) {
+        width: 200%;
+        left: -40%;
+    }
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        width: 300%;
+        left: -60%;
+    }
 `
 )
 
@@ -59,7 +81,7 @@ export default function Home() {
         let factor =
             maxDimFactor -
             clamp(
-                event.srcElement?.scrollTop / window.innerHeight,
+                pageRef.current?.scrollTop / window.innerHeight,
                 0,
                 maxDimFactor
             )
@@ -71,9 +93,11 @@ export default function Home() {
     React.useEffect(() => {
         let scrollElem = pageRef.current
         scrollElem.addEventListener('scroll', handleScroll)
+        window.addEventListener('resize', handleScroll)
 
         return () => {
             scrollElem.removeEventListener('scroll', handleScroll)
+            window.removeEventListener('resize', handleScroll)
         }
     }, [handleScroll])
 
@@ -84,8 +108,10 @@ export default function Home() {
                 <Overlay background={`rgba(0, 0, 0, ${dimmingFactor})`} />
                 <Parallax bg="/background.jpg" />
                 <Container>
-                    <Header />
-                    <SocialLinks />
+                    <HeaderContainer>
+                        <Header />
+                        <SocialLinks />
+                    </HeaderContainer>
                 </Container>
                 <Section background="#2a2b48cf">
                     <Container>
@@ -98,11 +124,9 @@ export default function Home() {
                 </Container>
             </Section> */}
                 <Section>
-                    <Container>
-                        <NoSSR>
-                            <RandomQuote />
-                        </NoSSR>
-                    </Container>
+                    <NoSSR>
+                        <RandomQuote />
+                    </NoSSR>
                 </Section>
                 <Section>
                     <WorldMap />
