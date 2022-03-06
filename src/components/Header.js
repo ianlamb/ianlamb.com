@@ -34,22 +34,28 @@ export const AnchorHitbox = styled.a`
 `
 
 export const Avatar = styled.div(
-    ({ size }) => `
+    ({ theme, size }) => `
     position: relative;
     border-radius: 50%;
     overflow: hidden;
     width: ${size}px;
     height: ${size}px;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
+    border: 2px solid ${theme.palette.foreground};
 
     & > img {
         width: 100%;
         height: 100%;
     }
 
-    ${AnchorHitbox}:hover + & > img:first-child {
-        opacity: 0.35;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    ${AnchorHitbox}:hover + & {
+        & {
+            border-color: ${theme.palette.blue};
+        }
+        & > img:first-child {
+            opacity: 0.35;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
     }
 `
 )
@@ -59,7 +65,7 @@ export const AvatarCover = styled.img`
     z-index: 2;
     opacity: 0.65;
     transition: all 0.5s ease;
-    clip-path: polygon(50% 0, 150% 0, 50% 100%, -50% 100%);
+    clip-path: polygon(20% 0, 80% 0, 80% 100%, 20% 100%);
 `
 
 export const AvatarReveal = styled.img(

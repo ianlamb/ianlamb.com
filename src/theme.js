@@ -1,4 +1,7 @@
 const spacingMultiplier = 8
+const pink = '#d368ff'
+const blue = '#2aaefb'
+
 const theme = {
     spacing: (value) => `${value * spacingMultiplier}px`,
     spacingMultiplier,
@@ -15,7 +18,9 @@ const theme = {
             primary: 'rgb(254,72,170)',
             secondary: 'rgb(49,165,246)',
         },
-        magicGradient: '-webkit-linear-gradient(-75deg, #d368ff, #2aaefb)',
+        pink,
+        blue,
+        magicGradient: `-webkit-linear-gradient(-75deg, ${pink}, ${blue})`,
     },
 }
 

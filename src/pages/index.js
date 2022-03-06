@@ -15,6 +15,8 @@ import Projects from '../components/Projects'
 import RandomQuote from '../components/RandomQuote'
 import WorldMap from '../components/WorldMap'
 
+const SCROLL_THROTTLE_MS = 50
+
 export const HeaderContainer = styled.div(
     ({ theme }) => `
     margin-top: ${theme.spacing(20)};
@@ -88,7 +90,7 @@ export default function Home() {
         if (dimmingFactor !== factor) {
             setDimmingFactor(factor)
         }
-    }, 100)
+    }, SCROLL_THROTTLE_MS)
 
     React.useEffect(() => {
         let scrollElem = pageRef.current
