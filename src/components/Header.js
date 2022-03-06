@@ -31,6 +31,7 @@ export const AnchorHitbox = styled.a`
     right: 0;
     bottom: 0;
     z-index: 3;
+    opacity: 0;
 `
 
 export const Avatar = styled.div(
@@ -110,7 +111,7 @@ export const Description = styled.div(
 const Header = ({ compact = false }) => {
     return (
         <Root compact={compact}>
-            <AnchorHitbox href="/" />
+            <AnchorHitbox href="/">Ian Lamb</AnchorHitbox>
             <Avatar size={compact ? 64 : 200}>
                 <AvatarCover src="/avatar.jpg" alt="avatar" />
                 <AvatarReveal src="/avatar2.jpg" alt="avatar" />

@@ -58,7 +58,7 @@ const CardImageContainer = styled.div`
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.2);
         transition: background 0.25s ease-out;
     }
 `
@@ -93,6 +93,7 @@ const CardLink = styled(Link)`
     right: 0;
     bottom: 0;
     z-index: 1;
+    opacity: 0;
 `
 
 const CardContent = styled.div``
@@ -127,7 +128,9 @@ class Projects extends React.Component {
                                         </PostDate>
                                     </CardContent>
                                 </CardBody>
-                                <CardLink to={post.frontmatter.path}></CardLink>
+                                <CardLink to={post.frontmatter.path}>
+                                    {post.frontmatter.title}
+                                </CardLink>
                             </Card>
                         ))}
                 </Cards>
