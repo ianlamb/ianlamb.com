@@ -60,6 +60,12 @@ const MarkdownContent = styled.div(
     h1, h2, h3, h4, h5, h6 {
         margin-top: 0;
     }
+    img {
+        display: block;
+        max-height: 400px;
+        max-width: 100%:
+        margin: 0 auto;
+    }
 `
 )
 
