@@ -29,6 +29,7 @@ const Project = styled.article(
 const SidebarContainer = styled.div(
     ({ theme }) => `
     flex-basis: 240px;
+    min-width: 240px;
     margin-bottom: ${theme.spacing(2)};
 
     @media only screen and (max-width: ${theme.breakpoints.mobile}) {

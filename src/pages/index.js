@@ -15,7 +15,7 @@ import Projects from '../components/Projects'
 import RandomQuote from '../components/RandomQuote'
 import WorldMap from '../components/WorldMap'
 
-const SCROLL_THROTTLE_MS = 50
+const SCROLL_THROTTLE_MS = 33
 
 export const HeaderContainer = styled.div(
     ({ theme }) => `
