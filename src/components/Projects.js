@@ -30,14 +30,14 @@ const Cards = styled.div(
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: ${theme.spacing(4)};
-    grid-row-gap: ${theme.spacing(4)};
+    grid-row-gap: ${theme.spacing(6)};
 
     @media only screen and (max-width: ${theme.breakpoints.tablet}) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         padding-bottom: ${theme.spacing(4)};
     }
 `
