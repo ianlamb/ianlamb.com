@@ -46,5 +46,16 @@ module.exports = {
             },
         },
         'gatsby-plugin-offline',
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                // The property ID; the tracking code won't be generated without it
+                trackingId: '305924119',
+                // Defines where to place the tracking script - `true` in the head and `false` in the body
+                head: false,
+                // defaults to false
+                enableWebVitalsTracking: true,
+            },
+        },
     ],
 }
