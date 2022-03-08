@@ -49,10 +49,16 @@ collections:
                   label: 'Travel Stats'
                   widget: list
                   fields:
-                      - { label: 'Stat', name: stat, widget: string }
+                      - { label: 'Label', name: label, widget: string }
                       - {
                             label: 'Value',
                             name: value,
+                            widget: number,
+                            value_type: int,
+                        }
+                      - {
+                            label: 'Max Value',
+                            name: max,
                             widget: number,
                             value_type: int,
                         }

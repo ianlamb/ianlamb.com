@@ -2,41 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { shuffle } from 'lodash-es'
 
-const quotes = [
-    {
-        text: 'Instead of cursing the darkness, light a candle.',
-        source: 'Benjamin Franklin',
-    },
-    {
-        text:
-            'Wealth consists not in having great possessions, but in having few wants.',
-        source: 'Epictetus',
-    },
-    {
-        text: 'Life is really simple, but we insist on making it complicated.',
-        source: 'Confucius',
-    },
-    {
-        text:
-            'If you don’t like something, change it. If you can’t change it, change the way you think about it.',
-        source: 'Mary Engelbreit',
-    },
-    {
-        text:
-            'I hear and I forget. I see and I remember. I do and I understand.',
-        source: 'Confucius',
-    },
-    {
-        text: 'What stands in the way becomes the way.',
-        source: 'Marcus Aurelius',
-    },
-    {
-        text:
-            'Between stimulus and response, there is a space. In that space is our power to choose our response.',
-        source: 'Viktor Frankl',
-    },
-]
-
 const Quote = styled.div(
     ({ theme }) => `
     font-size: 1.5rem;
@@ -86,7 +51,7 @@ const Source = styled.div(
 `
 )
 
-const RandomQuote = () => {
+const RandomQuote = ({ quotes }) => {
     const shuffledQuotes = React.useRef(shuffle(quotes))
     const [quoteIndex, setQuoteIndex] = React.useState(0)
     const quote = shuffledQuotes.current[quoteIndex]
@@ -101,8 +66,8 @@ const RandomQuote = () => {
 
     return (
         <QuoteContainer onClick={onClick}>
-            <Quote>&ldquo;{quote.text}&rdquo;</Quote>
-            <Source>&mdash;{quote.source}</Source>
+            <Quote>&ldquo;{quote.quote}&rdquo;</Quote>
+            <Source>&mdash;{quote.author}</Source>
         </QuoteContainer>
     )
 }

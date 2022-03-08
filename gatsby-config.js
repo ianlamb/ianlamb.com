@@ -19,7 +19,7 @@ module.exports = {
         // netlify cms
         'gatsby-plugin-netlify-cms',
 
-        // markdown support
+        // markdown/yaml support
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -28,6 +28,7 @@ module.exports = {
             },
         },
         'gatsby-transformer-remark',
+        'gatsby-transformer-yaml',
 
         // seo
         'gatsby-plugin-advanced-sitemap',

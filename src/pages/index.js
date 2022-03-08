@@ -1,5 +1,6 @@
 import React from 'react'
 import NoSSR from 'react-no-ssr'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { throttle, clamp } from 'lodash-es'
 
@@ -75,10 +76,30 @@ export const Overlay = styled.div(
 const maxDimFactor = 0.6
 
 export default function Home() {
+    const { pagesYaml: pageData } = useStaticQuery(graphql`
+        query getPageData {
+            pagesYaml(name: { eq: "home" }) {
+                name
+                title
+                intro
+                quotes {
+                    quote
+                    author
+                }
+                travel {
+                    label
+                    value
+                    max
+                }
+            }
+        }
+    `)
+
     const pageRef = React.useRef()
     const [dimmingFactor, setDimmingFactor] = React.useState(maxDimFactor)
 
     // reduce dimming as the user scrolls down
+    // TODO move this into different component to avoid re-rendering entire page tree on scroll
     const handleScroll = throttle((event) => {
         let factor =
             maxDimFactor -
@@ -111,7 +132,7 @@ export default function Home() {
                 <Parallax bg="/background.jpg" />
                 <Container>
                     <HeaderContainer>
-                        <Header />
+                        <Header title={pageData.title} intro={pageData.intro} />
                         <SocialLinks />
                     </HeaderContainer>
                 </Container>
@@ -127,11 +148,11 @@ export default function Home() {
             </Section> */}
                 <Section>
                     <NoSSR>
-                        <RandomQuote />
+                        <RandomQuote quotes={pageData.quotes} />
                     </NoSSR>
                 </Section>
                 <Section>
-                    <WorldMap />
+                    <WorldMap travel={pageData.travel} />
                 </Section>
             </Page>
         </Layout>

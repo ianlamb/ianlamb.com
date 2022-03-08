@@ -108,20 +108,16 @@ export const Description = styled.div(
 `
 )
 
-const Header = ({ compact = false }) => {
+const Header = ({ title, intro, compact = false }) => {
     return (
         <Root compact={compact}>
-            <AnchorHitbox href="/">Ian Lamb</AnchorHitbox>
+            <AnchorHitbox href="/">{title}</AnchorHitbox>
             <Avatar size={compact ? 64 : 200}>
                 <AvatarCover src="/avatar.jpg" alt="avatar" />
                 <AvatarReveal src="/avatar2.jpg" alt="avatar" />
             </Avatar>
-            <Title compact={compact}>Ian Lamb</Title>
-            {!compact && (
-                <Description>
-                    Software Engineer building things at Improbable
-                </Description>
-            )}
+            <Title compact={compact}>{title}</Title>
+            {!compact && <Description>{intro}</Description>}
         </Root>
     )
 }

@@ -63,7 +63,7 @@ export const BigNumber = styled.span(
 `
 )
 
-const WorldMap = () => {
+const WorldMap = ({ travel }) => {
     return (
         <div>
             <Container>
@@ -116,18 +116,15 @@ const WorldMap = () => {
                     </StatValue>
                 </Stats>
                 <Stats>
-                    <StatName>Countries Visited</StatName>
-                    <StatValue>
-                        <BigNumber>11</BigNumber> of 195
-                    </StatValue>
-                    <StatName>Canadian Provinces Visited</StatName>
-                    <StatValue>
-                        <BigNumber>6</BigNumber> of 10
-                    </StatValue>
-                    <StatName>American States Visited</StatName>
-                    <StatValue>
-                        <BigNumber>21</BigNumber> of 50
-                    </StatValue>
+                    {travel.map((stat) => (
+                        <React.Fragment key={stat.label}>
+                            <StatName>{stat.label}</StatName>
+                            <StatValue>
+                                <BigNumber>{stat.value}</BigNumber>
+                                {stat.max ? ` of ${stat.max}` : ''}
+                            </StatValue>
+                        </React.Fragment>
+                    ))}
                 </Stats>
             </Container>
             <WorldImage src="/world.svg" alt="world map" />
