@@ -7,9 +7,9 @@ public_folder: /img
 site_url: https://ianlamb.com
 
 collections:
-    - name: 'blog'
+    - name: blog
       label: 'Blog'
-      folder: 'content/blog'
+      folder: content/blog
       create: true
       fields:
           - { label: 'Title', name: 'title', widget: 'string' }
@@ -17,9 +17,9 @@ collections:
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
           - { label: 'Description', name: 'description', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
-    - name: 'projects'
+    - name: projects
       label: 'Projects'
-      folder: 'content/projects'
+      folder: content/projects
       create: true
       fields:
           - { label: 'Title', name: 'title', widget: 'string' }
@@ -30,3 +30,29 @@ collections:
           - { label: 'Image', name: 'image', widget: 'image' }
           - { label: 'Description', name: 'description', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
+    - name: pages
+      label: 'Pages'
+      files:
+          - name: home
+            label: 'Home'
+            file: content/pages/home.yml
+            fields:
+                - { label: 'Title', name: title, widget: string }
+                - { label: 'Intro', name: intro, widget: string }
+                - name: quotes
+                  label: 'Quotes'
+                  widget: list
+                  fields:
+                      - { label: 'Quote', name: quote, widget: string }
+                      - { label: 'Author', name: author, widget: string }
+                - name: travel
+                  label: 'Travel Stats'
+                  widget: list
+                  fields:
+                      - { label: 'Stat', name: stat, widget: string }
+                      - {
+                            label: 'Value',
+                            name: value,
+                            widget: number,
+                            value_type: int,
+                        }
