@@ -1,6 +1,6 @@
 # ianlamb.com
 
-2022 refresh of my personal website using Gatsby.
+2022 refresh of my personal website using Gatsby + Netlify CMS.
 
 ## Deploy
 
