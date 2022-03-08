@@ -2,27 +2,35 @@ name: home
 title: Ian Lamb
 intro: Software Engineer building things at Improbable
 quotes:
-    - quote: Instead of cursing the darkness, light a candle.
-      author: Benjamin Franklin
-    - quote: Wealth consists not in having great possessions, but in having few wants.
-      author: Epictetus
-    - quote: Life is really simple, but we insist on making it complicated.
-      author: Confucius
-    - quote: If you don’t like something, change it. If you can’t change it, change the way you think about it.
-      author: Mary Engelbreit
-    - quote: I hear and I forget. I see and I remember. I do and I understand.
-      author: Confucius
-    - quote: What stands in the way becomes the way.
-      author: Marcus Aurelius
-    - quote: Between stimulus and response, there is a space. In that space is our power to choose our response.
-      author: Viktor Frankl
+  - quote: Instead of cursing the darkness, light a candle.
+    author: Benjamin Franklin
+  - quote: Wealth consists not in having great possessions, but in having few wants.
+    author: Epictetus
+  - quote: Life is really simple, but we insist on making it complicated.
+    author: Confucius
+  - quote: If you don’t like something, change it. If you can’t change it, change
+      the way you think about it.
+    author: Mary Engelbreit
+  - quote: I hear and I forget. I see and I remember. I do and I understand.
+    author: Confucius
+  - quote: What stands in the way becomes the way.
+    author: Marcus Aurelius
+  - quote: Between stimulus and response, there is a space. In that space is our
+      power to choose our response.
+    author: Viktor Frankl
+  - quote: The happiness of your life depends upon the quality of your thoughts.
+    author: Marcus Aurelius
+  - quote: It’s not what happens to you, but how you react to it that matters.
+    author: Epictetus
+  - quote: We suffer more often in imagination than in reality.
+    author: Seneca
 travel:
-    - label: Countries Visited
-      value: 11
-      max: 195
-    - label: Canadian Provinces Visited
-      value: 6
-      max: 10
-    - label: American States Visited
-      value: 21
-      max: 50
+  - label: Countries Visited
+    value: 11
+    max: 195
+  - label: Canadian Provinces Visited
+    value: 6
+    max: 10
+  - label: American States Visited
+    value: 21
+    max: 50
