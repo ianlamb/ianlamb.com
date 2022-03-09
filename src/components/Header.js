@@ -148,7 +148,7 @@ const Header = ({
             {!compact && (
                 <SocialLinks>
                     {socialLinks.map((x, i) => (
-                        <>
+                        <React.Fragment key={i}>
                             <SocialLink
                                 href={x.url}
                                 target="_blank"
@@ -157,7 +157,7 @@ const Header = ({
                                 {x.label}
                             </SocialLink>
                             {i + 1 < socialLinks.length && <span>&bull;</span>}
-                        </>
+                        </React.Fragment>
                     ))}
                 </SocialLinks>
             )}

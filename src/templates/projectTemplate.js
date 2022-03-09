@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { useTheme } from '../theme'
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import SEO from '../components/SEO'
 import { Page, Section, Container } from '../components/common'
 import Header from '../components/Header'
 

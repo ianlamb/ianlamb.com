@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 
+// this one is pretty important since the homepage uses it to get the parallax effect
+// TODO split parallax stuff into homepage-specific component and make other pages use normal body-scroll
 export const Page = styled.div(
     ({ theme, background = 'none' }) => `
     position: relative;
