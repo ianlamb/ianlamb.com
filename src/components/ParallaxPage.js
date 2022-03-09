@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { throttle, clamp } from 'lodash-es'
 
@@ -86,4 +87,10 @@ export default function ParallaxPage({
             {children}
         </Root>
     )
+}
+
+ParallaxPage.propTypes = {
+    maxDimFactor: PropTypes.number,
+    scrollThrottleMS: PropTypes.number,
+    children: PropTypes.node,
 }

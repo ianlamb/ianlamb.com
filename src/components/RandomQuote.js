@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { shuffle } from 'lodash-es'
 
@@ -70,6 +71,15 @@ const RandomQuote = ({ quotes }) => {
             <Source>&mdash;{quote.author}</Source>
         </QuoteContainer>
     )
+}
+
+RandomQuote.propTypes = {
+    quotes: PropTypes.arrayOf(
+        PropTypes.shape({
+            quote: PropTypes.string,
+            author: PropTypes.string,
+        })
+    ),
 }
 
 export default RandomQuote

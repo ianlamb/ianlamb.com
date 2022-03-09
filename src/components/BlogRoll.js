@@ -37,37 +37,34 @@ const PostDate = styled.div(
 `
 )
 
-class BlogRoll extends React.Component {
-    render() {
-        const { data } = this.props
-        const { edges: posts } = data.allMarkdownRemark
+const BlogRoll = ({ data }) => {
+    const { edges: posts } = data.allMarkdownRemark
 
-        return (
-            <BlogRollContainer>
-                <h2>Intentionally Organized Words</h2>
-                <PostsContainer>
-                    {posts &&
-                        posts.map(({ node: post }) => (
-                            <Post key={post.id}>
-                                <header>
-                                    <Link
-                                        className="title has-text-primary is-size-4"
-                                        to={post.frontmatter.path}
-                                    >
-                                        <PostTitle>
-                                            {post.frontmatter.title}
-                                        </PostTitle>
-                                    </Link>
-                                    <PostDate>
-                                        {dayjs(post.frontmatter.date).fromNow()}
-                                    </PostDate>
-                                </header>
-                            </Post>
-                        ))}
-                </PostsContainer>
-            </BlogRollContainer>
-        )
-    }
+    return (
+        <BlogRollContainer>
+            <h2>Intentionally Organized Words</h2>
+            <PostsContainer>
+                {posts &&
+                    posts.map(({ node: post }) => (
+                        <Post key={post.id}>
+                            <header>
+                                <Link
+                                    className="title has-text-primary is-size-4"
+                                    to={post.frontmatter.path}
+                                >
+                                    <PostTitle>
+                                        {post.frontmatter.title}
+                                    </PostTitle>
+                                </Link>
+                                <PostDate>
+                                    {dayjs(post.frontmatter.date).fromNow()}
+                                </PostDate>
+                            </header>
+                        </Post>
+                    ))}
+            </PostsContainer>
+        </BlogRollContainer>
+    )
 }
 
 BlogRoll.propTypes = {

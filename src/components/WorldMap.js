@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { Container } from '../components/common'
@@ -130,6 +131,16 @@ const WorldMap = ({ travel }) => {
             <WorldImage src="/world.svg" alt="world map" />
         </div>
     )
+}
+
+WorldMap.propTypes = {
+    travel: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string,
+            value: PropTypes.number,
+            max: PropTypes.number,
+        })
+    ),
 }
 
 export default WorldMap

@@ -98,45 +98,40 @@ const CardLink = styled(Link)`
 
 const CardContent = styled.div``
 
-class Projects extends React.Component {
-    render() {
-        const { data } = this.props
-        const { edges: posts } = data.allMarkdownRemark
+const Projects = ({ data }) => {
+    const { edges: posts } = data.allMarkdownRemark
 
-        return (
-            <ProjectsContainer>
-                <h2>Side Projects</h2>
-                <Cards>
-                    {posts &&
-                        posts.map(({ node: post }) => (
-                            <Card key={post.id}>
-                                <CardBody>
-                                    <CardImageContainer>
-                                        <CardImage
-                                            src={post.frontmatter.image}
-                                            alt={`Image for ${post.frontmatter.title}`}
-                                        />
-                                    </CardImageContainer>
-                                    <CardContent>
-                                        <PostTitle>
-                                            {post.frontmatter.title}
-                                        </PostTitle>
-                                        <PostDate>
-                                            {dayjs(
-                                                post.frontmatter.date
-                                            ).fromNow()}
-                                        </PostDate>
-                                    </CardContent>
-                                </CardBody>
-                                <CardLink to={post.frontmatter.path}>
-                                    {post.frontmatter.title}
-                                </CardLink>
-                            </Card>
-                        ))}
-                </Cards>
-            </ProjectsContainer>
-        )
-    }
+    return (
+        <ProjectsContainer>
+            <h2>Side Projects</h2>
+            <Cards>
+                {posts &&
+                    posts.map(({ node: post }) => (
+                        <Card key={post.id}>
+                            <CardBody>
+                                <CardImageContainer>
+                                    <CardImage
+                                        src={post.frontmatter.image}
+                                        alt={`Image for ${post.frontmatter.title}`}
+                                    />
+                                </CardImageContainer>
+                                <CardContent>
+                                    <PostTitle>
+                                        {post.frontmatter.title}
+                                    </PostTitle>
+                                    <PostDate>
+                                        {dayjs(post.frontmatter.date).fromNow()}
+                                    </PostDate>
+                                </CardContent>
+                            </CardBody>
+                            <CardLink to={post.frontmatter.path}>
+                                {post.frontmatter.title}
+                            </CardLink>
+                        </Card>
+                    ))}
+            </Cards>
+        </ProjectsContainer>
+    )
 }
 
 Projects.propTypes = {

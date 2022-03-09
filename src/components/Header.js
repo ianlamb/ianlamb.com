@@ -1,5 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 export const Root = styled.div(({ theme, compact }) =>
@@ -141,8 +141,8 @@ const SocialLink = styled.a(
 
 const Header = ({
     title = 'Ian Lamb',
-    intro,
-    socialLinks,
+    intro = '',
+    socialLinks = [],
     compact = false,
 }) => {
     return (
@@ -177,15 +177,15 @@ const Header = ({
 }
 
 Header.propTypes = {
-    title: propTypes.string,
-    intro: propTypes.string,
-    socialLinks: propTypes.arrayOf(
-        propTypes.shape({
-            label: propTypes.string,
-            url: propTypes.string,
+    title: PropTypes.string,
+    intro: PropTypes.string,
+    socialLinks: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string,
+            url: PropTypes.string,
         })
     ),
-    compact: propTypes.bool,
+    compact: PropTypes.bool,
 }
 
 export default Header
