@@ -1,18 +1,10 @@
 import styled, { css } from 'styled-components'
 
-// this one is pretty important since the homepage uses it to get the parallax effect
-// TODO split parallax stuff into homepage-specific component and make other pages use normal body-scroll
 export const Page = styled.div(
     ({ theme, background = 'none' }) => `
     position: relative;
-    overflow: auto;
-    height: 100vh;
     color: ${theme.palette.foreground};
     background: ${background};
-
-    overflow-y: scroll;
-    perspective: 8px;
-    perspective-origin: 0%;
 `
 )
 
@@ -61,6 +53,18 @@ export const Button = styled.button`
             color: white;
         `}
 `
+
+export const Overlay = styled.div(
+    ({ opacity }) => `
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, ${opacity});
+    pointer-events: none;
+`
+)
 
 export const Backdrop = styled.div`
   position: absolute;

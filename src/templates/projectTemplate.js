@@ -8,12 +8,6 @@ import SEO from '../components/SEO'
 import { Page, Section, Container } from '../components/common'
 import Header from '../components/Header'
 
-const HeaderContainer = styled.div(
-    ({ theme }) => `
-    margin: ${theme.spacing(2)};
-    `
-)
-
 const Project = styled.article(
     ({ theme }) => `
     display: flex;
@@ -123,9 +117,7 @@ export default function Template({ data }) {
                     article={true}
                 />
                 <Container maxWidth={800} gutters={false}>
-                    <HeaderContainer>
-                        <Header compact={true} />
-                    </HeaderContainer>
+                    <Header compact={true} />
                 </Container>
                 <Section background="#34353ecf">
                     <Container maxWidth={800} gutters={false}>
