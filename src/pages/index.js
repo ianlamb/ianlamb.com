@@ -9,8 +9,6 @@ import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { Page, Section, Container } from '../components/common'
 import Header from '../components/Header'
-import SocialLinks from '../components/SocialLinks'
-// import About from '../components/About'
 // import BlogRoll from '../components/BlogRoll'
 import Projects from '../components/Projects'
 import RandomQuote from '../components/RandomQuote'
@@ -82,6 +80,10 @@ export default function Home() {
                 name
                 title
                 intro
+                social {
+                    label
+                    url
+                }
                 quotes {
                     quote
                     author
@@ -132,8 +134,11 @@ export default function Home() {
                 <Parallax bg="/background.jpg" />
                 <Container>
                     <HeaderContainer>
-                        <Header title={pageData.title} intro={pageData.intro} />
-                        <SocialLinks />
+                        <Header
+                            title={pageData.title}
+                            intro={pageData.intro}
+                            socialLinks={pageData.social}
+                        />
                     </HeaderContainer>
                 </Container>
                 <Section background="#2a2b48cf">

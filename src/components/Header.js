@@ -1,7 +1,13 @@
 import React from 'react'
+import propTypes from 'prop-types'
 import styled from 'styled-components'
 
 export const Root = styled.div(
+    ({ theme, compact }) => `
+`
+)
+
+export const Wrapper = styled.div(
     ({ theme, compact }) => `
     position: relative;
     display: flex;
@@ -15,10 +21,10 @@ export const Root = styled.div(
     ${
         compact &&
         `
-        flex-direction: row;
-        margin-left: 0;
-        margin-right: 0;
-    `
+    flex-direction: row;
+    margin-left: 0;
+    margin-right: 0;
+`
     }
 `
 )
@@ -108,18 +114,67 @@ export const Description = styled.div(
 `
 )
 
-const Header = ({ title, intro, compact = false }) => {
+const SocialLinks = styled.div(
+    ({ theme }) => `
+    text-align: center;
+    margin-top: ${theme.spacing(2)};
+`
+)
+
+const SocialLink = styled.a(
+    ({ theme }) => `
+    display: inline-block;
+    margin: 0 ${theme.spacing(0.5)};
+`
+)
+
+const Header = ({
+    title = 'Ian Lamb',
+    intro,
+    socialLinks,
+    compact = false,
+}) => {
     return (
-        <Root compact={compact}>
-            <AnchorHitbox href="/">{title}</AnchorHitbox>
-            <Avatar size={compact ? 64 : 200}>
-                <AvatarCover src="/avatar.jpg" alt="avatar" />
-                <AvatarReveal src="/avatar2.jpg" alt="avatar" />
-            </Avatar>
-            <Title compact={compact}>{title}</Title>
-            {!compact && <Description>{intro}</Description>}
+        <Root>
+            <Wrapper compact={compact}>
+                <AnchorHitbox href="/">{title}</AnchorHitbox>
+                <Avatar size={compact ? 64 : 200}>
+                    <AvatarCover src="/avatar.jpg" alt="avatar cover" />
+                    <AvatarReveal src="/avatar2.jpg" alt="avatar reveal" />
+                </Avatar>
+                <Title compact={compact}>{title}</Title>
+                {!compact && <Description>{intro}</Description>}
+            </Wrapper>
+            {!compact && (
+                <SocialLinks>
+                    {socialLinks.map((x, i) => (
+                        <>
+                            <SocialLink
+                                href={x.url}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                {x.label}
+                            </SocialLink>
+                            {i + 1 < socialLinks.length && <span>&bull;</span>}
+                        </>
+                    ))}
+                </SocialLinks>
+            )}
         </Root>
     )
+}
+
+Header.propTypes = {
+    title: propTypes.string,
+    intro: propTypes.string,
+    socialLinks: propTypes.arrayOf(
+        propTypes.shape({
+            label: propTypes.string,
+            url: propTypes.string,
+        })
+    ),
+    compact: propTypes.bool,
 }
 
 export default Header
