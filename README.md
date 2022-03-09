@@ -1,5 +1,7 @@
 # ianlamb.com
 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 2022 refresh of my personal website using Gatsby + Netlify CMS.
 
 ## Develop
