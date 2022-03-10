@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { useTheme } from '../theme'
 import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Metadata from '../components/Metadata'
 import { Page, Section, Container } from '../components/common'
 import Header from '../components/Header'
 
@@ -69,7 +69,7 @@ const Thumbnail = styled.img`
     border: 0;
 `
 
-const Metadata = styled.dl(
+const ProjectMetadata = styled.dl(
     ({ theme }) => `
     margin: 0;
 `
@@ -110,7 +110,7 @@ export default function Template({ data }) {
     return (
         <Layout>
             <Page background={theme.palette.magicGradient}>
-                <SEO
+                <Metadata
                     title={frontmatter.title}
                     description={frontmatter.description}
                     image={frontmatter.image}
@@ -124,7 +124,7 @@ export default function Template({ data }) {
                         <Project>
                             <SidebarContainer>
                                 <Sidebar>
-                                    <Metadata>
+                                    <ProjectMetadata>
                                         <Label>Project</Label>
                                         <Value>
                                             {frontmatter.title || '?'}
@@ -172,7 +172,7 @@ export default function Template({ data }) {
                                                 </Value>
                                             </>
                                         )}
-                                    </Metadata>
+                                    </ProjectMetadata>
                                 </Sidebar>
                             </SidebarContainer>
                             <Content>

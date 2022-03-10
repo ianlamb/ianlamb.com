@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 import '../styles.css'
 import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Metadata from '../components/Metadata'
 import { Section, Container } from '../components/common'
 import ParallaxPage from '../components/ParallaxPage'
 import Header from '../components/Header'
@@ -40,7 +40,7 @@ export default function Home() {
     return (
         <Layout>
             <ParallaxPage>
-                <SEO />
+                <Metadata />
                 <Container>
                     <Header
                         title={pageData.title}
