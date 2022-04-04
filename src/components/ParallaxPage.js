@@ -9,9 +9,9 @@ import { Page, Overlay } from '../components/common'
 const Root = styled(Page)(
     ({ theme }) => `
     height: 100vh;
-  overflow-y: auto;
-  perspective: 8px;
-  perspective-origin: 0%;
+    overflow-y: auto;
+    perspective: 8px;
+    perspective-origin: 0%;
 `
 )
 
@@ -24,15 +24,13 @@ const Parallax = styled.div(
     right: 0;
     left: 0;
     width: 100%;
-    height: 1440px;
-    opacity: 0.7;
+    height: 300vh;
+    opacity: 0.5;
     transform-origin: 0%;
     transform: translateZ(-8px) scale(2);
     z-index: -1;
     background-image: url('${bg}');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background-repeat: repeat;
 
     @media only screen and (max-width: ${theme.breakpoints.tablet}) {
         width: 200%;
@@ -47,7 +45,7 @@ const Parallax = styled.div(
 )
 
 export default function ParallaxPage({
-    maxDimFactor = 0.6,
+    maxDimFactor = 0,
     scrollThrottleMS = 33,
     children,
 }) {
@@ -83,7 +81,7 @@ export default function ParallaxPage({
     return (
         <Root ref={pageRef}>
             <Overlay opacity={dimmingFactor} />
-            <Parallax bg="/background.jpg" />
+            <Parallax bg="/graphy_dark.png" />
             {children}
         </Root>
     )
