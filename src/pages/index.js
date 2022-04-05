@@ -48,7 +48,7 @@ export default function Home() {
                         socialLinks={pageData.social}
                     />
                 </Container>
-                <Section background="#2a2b48cf">
+                <Section background="rgba(0,0,0,0.5)">
                     <Container>
                         <Projects />
                     </Container>

@@ -5,7 +5,8 @@ date: 2022-02-12T00:00:00.000Z
 image: /projects/stolen-realm-planner.jpg
 url: https://ianlamb.github.io/stolen-realm-planner
 source: https://github.com/ianlamb/stolen-realm-planner
-description: Stolen Realm Planner is a skill calculator for the game Stolen Realm.
+description: Stolen Realm Planner is a skill calculator for the game Stolen Realm. It replicates the in-game skill trees including damage calculations and also features build sharing.
+featured: true
 ---
 
 ## Problem

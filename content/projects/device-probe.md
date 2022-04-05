@@ -6,7 +6,9 @@ source: https://github.com/ianlamb/device-probe
 url: https://device.ianlamb.com/
 image: /projects/device-probe.jpg
 description: Device Probe is a tiny SPA that displays details about your device and browser.
+featured: false
 ---
+
 ## Summary
 
 This was just a fun little project I used to explore some of the many new browser APIs, notably WebRTC which is used to determine your local IP address. I also tried implementing a network speed test, but not sure if it's very accurate.
