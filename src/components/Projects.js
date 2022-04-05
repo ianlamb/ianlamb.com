@@ -70,6 +70,7 @@ const CardImageContainer = styled.div(
     ({ theme }) => `
     position: relative;
     margin-bottom: 8px;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.5);
     transition: all 0.25s ease-out;
 
     &:before {
@@ -80,23 +81,32 @@ const CardImageContainer = styled.div(
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.2);
-        transition: background 0.25s ease-out;
+        opacity: 0.3;
+        z-index: 1;
+        background: ${theme.palette.magicGradient};
+        transition: opacity 0.25s ease-out;
     }
     
     .featured & {
         width: 440px;
         height: 248px;
         overflow: hidden;
+
+        @media only screen and (max-width: ${theme.breakpoints.tablet}) {
+            width: 50%;
+        }
     }
 `
 )
 
 const CardImage = styled.img(
     ({ theme }) => `
+    display: block;
     width: 100%;
     height: auto;
     border: 0;
+    filter: grayscale(1);
+    transition: filter 0.25s ease-out;
 `
 )
 
@@ -107,15 +117,26 @@ const Card = styled.div(
     &:hover {
         ${CardImageContainer} {
             transform: translateY(-2px);
+            box-shadow: 0 1px 5px 1px rgba(0,0,0,0.5);
 
             &:before {
-                background: rgba(0, 0, 0, 0);
+                opacity: 0;
             }
+        }
+        ${CardImage} {
+            filter: grayscale(0);
         }
     }
     
     &.featured {
         grid-column: span 4;
+        @media only screen and (max-width: ${theme.breakpoints.tablet}) {
+            grid-column: span 3;
+        }
+    
+        @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+            grid-column: span 2;
+        }
     }
 `
 )
