@@ -11,15 +11,28 @@ const ProjectsContainer = styled.div(
 `
 )
 
-const PostTitle = styled.h3`
+const PostTitle = styled.h3(
+    ({ theme }) => `
     margin: 0;
     display: inline-block;
+    font-size: 1.0rem;
+    
+    .featured & {
+        font-size: 1.6rem;
+    }
 `
+)
 
 const PostDate = styled.div(
     ({ theme }) => `
     font-size: 0.8rem;
     color: ${theme.palette.text.muted};
+`
+)
+
+const PostDescription = styled.p(
+    ({ theme }) => `
+    margin: ${theme.spacing(2)} 0;
 `
 )
 
@@ -29,8 +42,8 @@ const Cards = styled.div(
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-column-gap: ${theme.spacing(4)};
-    grid-row-gap: ${theme.spacing(6)};
+    grid-column-gap: ${theme.spacing(6)};
+    grid-row-gap: ${theme.spacing(4)};
 
     @media only screen and (max-width: ${theme.breakpoints.tablet}) {
         grid-template-columns: 1fr 1fr 1fr;
@@ -43,9 +56,18 @@ const Cards = styled.div(
 `
 )
 
-const CardBody = styled.div``
+const CardBody = styled.div(
+    ({ theme }) => `
+    
+    .featured & {
+        display: flex;
+        flex-direction: row;
+    }
+`
+)
 
-const CardImageContainer = styled.div`
+const CardImageContainer = styled.div(
+    ({ theme }) => `
     position: relative;
     margin-bottom: 8px;
     transition: all 0.25s ease-out;
@@ -61,13 +83,22 @@ const CardImageContainer = styled.div`
         background: rgba(0, 0, 0, 0.2);
         transition: background 0.25s ease-out;
     }
+    
+    .featured & {
+        width: 440px;
+        height: 248px;
+        overflow: hidden;
+    }
 `
+)
 
-const CardImage = styled.img`
+const CardImage = styled.img(
+    ({ theme }) => `
     width: 100%;
     height: auto;
     border: 0;
 `
+)
 
 const Card = styled.div(
     ({ theme }) => `
@@ -81,6 +112,10 @@ const Card = styled.div(
                 background: rgba(0, 0, 0, 0);
             }
         }
+    }
+    
+    &.featured {
+        grid-column: span 4;
     }
 `
 )
@@ -96,38 +131,64 @@ const CardLink = styled(Link)`
     opacity: 0;
 `
 
-const CardContent = styled.div``
+const CardContent = styled.div(
+    ({ theme }) => `
+    .featured & {
+        flex: 1;
+        padding: 0 ${theme.spacing(2)}
+    }
+`
+)
+
+const ProjectCard = ({ post, featured = false }) => (
+    <Card className={featured ? 'featured' : ''}>
+        <CardBody>
+            <CardImageContainer>
+                <CardImage
+                    src={post.frontmatter.image}
+                    alt={`Image for ${post.frontmatter.title}`}
+                />
+            </CardImageContainer>
+            <CardContent>
+                <PostTitle>{post.frontmatter.title}</PostTitle>
+                <PostDate>{dayjs(post.frontmatter.date).fromNow()}</PostDate>
+                {featured && (
+                    <PostDescription>
+                        {post.frontmatter.description}
+                    </PostDescription>
+                )}
+            </CardContent>
+        </CardBody>
+        <CardLink to={post.frontmatter.path}>{post.frontmatter.title}</CardLink>
+    </Card>
+)
 
 const Projects = ({ data }) => {
-    const { edges: posts } = data.allMarkdownRemark
+    let { edges } = data.allMarkdownRemark
+    let posts = [...edges]
+    let featuredPost
+    const featuredPostIndex = posts.findIndex(
+        (p) => p.node?.frontmatter?.featured === true
+    )
+    if (featuredPostIndex > -1) {
+        featuredPost = posts[featuredPostIndex]
+        posts.splice(featuredPostIndex, 1)
+    }
 
     return (
         <ProjectsContainer>
             <h2>Side Projects</h2>
             <Cards>
+                {featuredPost && (
+                    <ProjectCard
+                        key={featuredPost.id}
+                        post={featuredPost.node}
+                        featured={true}
+                    />
+                )}
                 {posts &&
                     posts.map(({ node: post }) => (
-                        <Card key={post.id}>
-                            <CardBody>
-                                <CardImageContainer>
-                                    <CardImage
-                                        src={post.frontmatter.image}
-                                        alt={`Image for ${post.frontmatter.title}`}
-                                    />
-                                </CardImageContainer>
-                                <CardContent>
-                                    <PostTitle>
-                                        {post.frontmatter.title}
-                                    </PostTitle>
-                                    <PostDate>
-                                        {dayjs(post.frontmatter.date).fromNow()}
-                                    </PostDate>
-                                </CardContent>
-                            </CardBody>
-                            <CardLink to={post.frontmatter.path}>
-                                {post.frontmatter.title}
-                            </CardLink>
-                        </Card>
+                        <ProjectCard key={post.id} post={post} />
                     ))}
             </Cards>
         </ProjectsContainer>
@@ -161,6 +222,7 @@ const query = () => (
                                 date
                                 image
                                 url
+                                featured
                             }
                         }
                     }

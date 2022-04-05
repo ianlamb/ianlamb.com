@@ -6,8 +6,10 @@ source: https://github.com/ianlamb/darksouls-challenges
 url: http://darksouls.ianlamb.com/challenges
 image: /projects/ds-challenge-run-gen.jpg
 description: Dark Souls Challenge Run Generator is a quick and fun way to create
-  random "themes" for playthroughs of Dark Souls.
+    random "themes" for playthroughs of Dark Souls.
+featured: false
 ---
+
 ## Problem
 
 [Dark Souls](https://store.steampowered.com/app/570940/DARK_SOULS_REMASTERED/) is a punishing fantasy RPG with elements of roguelikes such as predictable move sets and static spawns. This means the more you play and learn the game the easier the encounters become. For this reason, lots of seasoned players enjoy playing through the game quickly and sometimes in new and different ways to change up their experience.
