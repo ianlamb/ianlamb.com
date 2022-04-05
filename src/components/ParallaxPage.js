@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { throttle, clamp } from 'lodash-es'
 
 import '../styles.css'
-import { Page, Overlay } from '../components/common'
+import { Page } from '../components/common'
 
 const Root = styled(Page)(
     ({ theme }) => `
@@ -12,6 +11,7 @@ const Root = styled(Page)(
     overflow-y: auto;
     perspective: 8px;
     perspective-origin: 0%;
+    background: ${theme.palette.magicGradient};
 `
 )
 
@@ -24,8 +24,8 @@ const Parallax = styled.div(
     right: 0;
     left: 0;
     width: 100%;
-    height: 300vh;
-    opacity: 0.5;
+    height: 400vh;
+    opacity: 0.8;
     transform-origin: 0%;
     transform: translateZ(-8px) scale(2);
     z-index: -1;
@@ -44,43 +44,9 @@ const Parallax = styled.div(
 `
 )
 
-export default function ParallaxPage({
-    maxDimFactor = 0,
-    scrollThrottleMS = 33,
-    children,
-}) {
-    const pageRef = React.useRef()
-    const [dimmingFactor, setDimmingFactor] = React.useState(maxDimFactor)
-
-    // reduce dimming as the user scrolls down
-    // TODO move this into different component to avoid re-rendering entire page tree on scroll
-    const handleScroll = throttle((event) => {
-        let factor =
-            maxDimFactor -
-            clamp(
-                pageRef.current?.scrollTop / window.innerHeight,
-                0,
-                maxDimFactor
-            )
-        if (dimmingFactor !== factor) {
-            setDimmingFactor(factor)
-        }
-    }, scrollThrottleMS)
-
-    React.useEffect(() => {
-        let scrollElem = pageRef.current
-        scrollElem.addEventListener('scroll', handleScroll)
-        window.addEventListener('resize', handleScroll)
-
-        return () => {
-            scrollElem.removeEventListener('scroll', handleScroll)
-            window.removeEventListener('resize', handleScroll)
-        }
-    }, [handleScroll])
-
+export default function ParallaxPage({ children }) {
     return (
-        <Root ref={pageRef}>
-            <Overlay opacity={dimmingFactor} />
+        <Root>
             <Parallax bg="/graphy_dark.png" />
             {children}
         </Root>
@@ -88,7 +54,5 @@ export default function ParallaxPage({
 }
 
 ParallaxPage.propTypes = {
-    maxDimFactor: PropTypes.number,
-    scrollThrottleMS: PropTypes.number,
     children: PropTypes.node,
 }

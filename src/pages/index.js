@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Particles from 'react-tsparticles'
 
 import '../styles.css'
+import theme from '../theme'
 import Layout from '../components/Layout'
 import Metadata from '../components/Metadata'
 import { Section, Container } from '../components/common'
@@ -15,54 +16,18 @@ import RandomQuote from '../components/RandomQuote'
 import WorldMap from '../components/WorldMap'
 
 const particlesOptions = {
-    // background: {
-    //     color: {
-    //         value: '#0d47a1',
-    //     },
-    // },
     fpsLimit: 120,
-    // interactivity: {
-    //     events: {
-    //         onClick: {
-    //             enable: true,
-    //             mode: 'push',
-    //         },
-    //         onHover: {
-    //             enable: true,
-    //             mode: 'repulse',
-    //         },
-    //         resize: true,
-    //     },
-    //     modes: {
-    //         bubble: {
-    //             distance: 400,
-    //             duration: 2,
-    //             opacity: 0.8,
-    //             size: 40,
-    //         },
-    //         push: {
-    //             quantity: 4,
-    //         },
-    //         repulse: {
-    //             distance: 200,
-    //             duration: 0.4,
-    //         },
-    //     },
-    // },
     particles: {
         color: {
-            value: '#ffffff',
+            value: theme.palette.pink,
         },
         links: {
-            color: '#ffffff',
+            color: theme.palette.pink,
             distance: 150,
             enable: true,
             opacity: 0.5,
             width: 1,
         },
-        // collisions: {
-        //     enable: true,
-        // },
         move: {
             direction: 'none',
             enable: true,
@@ -86,7 +51,7 @@ const particlesOptions = {
         },
         size: {
             random: true,
-            value: 2,
+            value: 3,
         },
     },
     detectRetina: true,

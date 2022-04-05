@@ -135,7 +135,8 @@ const SocialLinks = styled.div(
 const SocialLink = styled.a(
     ({ theme }) => `
     display: inline-block;
-    margin: 0 ${theme.spacing(0.5)};
+    margin: 0 ${theme.spacing(1)};
+    font-size: 1.2rem;
 `
 )
 
