@@ -23,24 +23,14 @@ const Parallax = styled.div(
     top: 0;
     right: 0;
     left: 0;
+    bottom: -2000px;
     width: 100%;
-    height: 400vh;
     opacity: 0.8;
     transform-origin: 0%;
     transform: translateZ(-8px) scale(2);
     z-index: -1;
     background-image: url('${bg}');
     background-repeat: repeat;
-
-    @media only screen and (max-width: ${theme.breakpoints.tablet}) {
-        width: 200%;
-        left: -40%;
-    }
-
-    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-        width: 300%;
-        left: -60%;
-    }
 `
 )
 
