@@ -66,37 +66,48 @@ export const Avatar = styled.div(
         height: 100%;
     }
 
+    &:before,
+    &:after{
+        position: absolute;
+        content: "";
+        transition: all .25s;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    &:before{
+        width: 10%;
+        height: 33%;
+        left: -10px;
+        bottom: -10px;
+    }
+
+    &:after{
+        width: 10%;
+        height: 33%;
+        top: -10px;
+        right: -10px;
+    }
+
     ${AnchorHitbox}:hover + & {
         & {
             border-color: ${theme.palette.blue};
         }
-        & > img:first-child {
-            opacity: 0.35;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+        &:before{
+            width: 112%;
+            height: 140%;
+        }
+        
+        &:after{
+            width: 112%;
+            height: 140%;
         }
     }
 `
 )
 
-export const AvatarCover = styled.img`
-    position: relative;
-    z-index: 2;
-    opacity: 0.65;
-    transition: all 0.5s ease;
-    clip-path: polygon(20% 0, 80% 0, 80% 100%, 20% 100%);
-`
-
-export const AvatarReveal = styled.img(
-    ({ theme }) => `
-    position: absolute;
-    opacity: 0.8;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-`
-)
+export const AvatarImage = styled.img``
 
 export const Title = styled.h1(
     ({ theme, compact }) => `
@@ -151,8 +162,7 @@ const Header = ({
             <Wrapper compact={compact}>
                 <AnchorHitbox href="/">{title}</AnchorHitbox>
                 <Avatar size={compact ? 64 : 200}>
-                    <AvatarCover src="/avatar.jpg" alt="avatar cover" />
-                    <AvatarReveal src="/avatar2.jpg" alt="avatar reveal" />
+                    <AvatarImage src="/avatar3.jpg" alt="avatar image" />
                 </Avatar>
                 <Title compact={compact}>{title}</Title>
                 {!compact && <Description>{intro}</Description>}
