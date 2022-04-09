@@ -8,6 +8,19 @@ import Metadata from '../components/Metadata'
 import { Page, Section, Container } from '../components/common'
 import Header from '../components/Header'
 
+export const Background = styled.div(
+    ({ background }) => `
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: ${background};
+    pointer-events: none;
+    opacity: 0.8;
+`
+)
+
 const Project = styled.article(
     ({ theme }) => `
     display: flex;
@@ -116,11 +129,10 @@ export default function Template({ data }) {
                     image={frontmatter.image}
                     article={true}
                 />
-                <Container maxWidth={800} gutters={false}>
-                    <Header compact={true} />
-                </Container>
-                <Section background="#34353ecf">
+                <Background background="url('/graphy_dark.png')" />
+                <Section>
                     <Container maxWidth={800} gutters={false}>
+                        <Header compact={true} />
                         <Project>
                             <SidebarContainer>
                                 <Sidebar>

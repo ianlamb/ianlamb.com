@@ -5,8 +5,14 @@ import styled from 'styled-components'
 export const Root = styled.div(({ theme, compact }) =>
     compact
         ? `
-    margin-top: ${theme.spacing(2)};
-    margin-bottom: ${theme.spacing(2)};`
+    margin-top: ${theme.spacing(0)};
+    margin-bottom: ${theme.spacing(4)};
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        margin-top: ${theme.spacing(2)};
+        margin-bottom: ${theme.spacing(2)};
+        padding: 0 ${theme.spacing(2)};
+    }`
         : `
     margin-top: ${theme.spacing(20)};
     margin-bottom: ${theme.spacing(20)};
