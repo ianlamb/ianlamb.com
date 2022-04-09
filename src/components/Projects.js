@@ -198,7 +198,7 @@ const Projects = ({ data }) => {
 
     return (
         <ProjectsContainer>
-            <h2>Side Projects</h2>
+            <h2 id="projects">Side Projects</h2>
             <Cards>
                 {featuredPost && (
                     <ProjectCard

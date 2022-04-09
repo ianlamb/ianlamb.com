@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 export const Root = styled.div(({ theme, compact }) =>
     compact
@@ -46,7 +47,7 @@ export const Wrapper = styled.div(
 `
 )
 
-export const AnchorHitbox = styled.a`
+export const AnchorHitbox = styled(Link)`
     position: absolute;
     display: block;
     top: 0;
@@ -166,7 +167,7 @@ const Header = ({
     return (
         <Root compact={compact}>
             <Wrapper compact={compact}>
-                <AnchorHitbox href="/">{title}</AnchorHitbox>
+                <AnchorHitbox to="/">{title}</AnchorHitbox>
                 <Avatar size={compact ? 64 : 200}>
                     <AvatarImage src="/avatar3.jpg" alt="avatar image" />
                 </Avatar>

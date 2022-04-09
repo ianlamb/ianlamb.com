@@ -68,7 +68,7 @@ const WorldMap = ({ travel }) => {
     return (
         <div>
             <Container>
-                <h2>Earthly Meanderings</h2>
+                <h2 id="travel">Earthly Meanderings</h2>
                 <Stats>
                     <StatName>Born &amp; Raised</StatName>
                     <StatValue>

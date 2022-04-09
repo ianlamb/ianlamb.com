@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import { useTheme } from '../theme'
@@ -108,7 +108,7 @@ const Value = styled.dd(
 `
 )
 
-const BackLink = styled.a(
+const BackLink = styled(Link)(
     ({ theme }) => `
     float: right;
     margin-top: ${theme.spacing(2)};
@@ -194,7 +194,9 @@ export default function Template({ data }) {
                                     }}
                                 />
 
-                                <BackLink href="/">&#10229; Back</BackLink>
+                                <BackLink to="/#projects">
+                                    &#10229; Back
+                                </BackLink>
                             </Content>
                         </Project>
                     </Container>
