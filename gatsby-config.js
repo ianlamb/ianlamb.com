@@ -10,7 +10,7 @@ module.exports = {
         titleTemplate: '%s',
         siteUrl: 'https://ianlamb.com',
         description: 'Stumbling through life',
-        image: 'avatar.jpg',
+        image: 'default_avatar.jpg',
     },
     plugins: [
         // fix FOUC with styled-components

@@ -159,6 +159,7 @@ const SocialLink = styled.a(
 )
 
 const Header = ({
+    avatarUrl = '/default_avatar.jpg',
     title = 'Ian Lamb',
     intro = '',
     socialLinks = [],
@@ -169,7 +170,7 @@ const Header = ({
             <Wrapper compact={compact}>
                 <AnchorHitbox to="/">{title}</AnchorHitbox>
                 <Avatar size={compact ? 64 : 200}>
-                    <AvatarImage src="/avatar3.jpg" alt="avatar image" />
+                    <AvatarImage src={avatarUrl} alt="avatar image" />
                 </Avatar>
                 <Title compact={compact}>{title}</Title>
                 {!compact && <Description>{intro}</Description>}
@@ -195,6 +196,7 @@ const Header = ({
 }
 
 Header.propTypes = {
+    avatarUrl: PropTypes.string,
     title: PropTypes.string,
     intro: PropTypes.string,
     socialLinks: PropTypes.arrayOf(
