@@ -77,9 +77,9 @@ export const Avatar = styled.div(
     &:after{
         position: absolute;
         content: "";
-        transition: all .25s;
+        transition: all .1s;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.1);
     }
 
     &:before{
@@ -96,10 +96,8 @@ export const Avatar = styled.div(
         right: -10px;
     }
 
-    ${AnchorHitbox}:hover + & {
-        & {
-            border-color: ${theme.palette.blue};
-        }
+    &:hover {
+        border-color: ${theme.palette.blue};
 
         &:before{
             width: 112%;
@@ -168,9 +166,9 @@ const Header = ({
     return (
         <Root compact={compact}>
             <Wrapper compact={compact}>
-                <AnchorHitbox to="/">{title}</AnchorHitbox>
                 <Avatar size={compact ? 64 : 200}>
                     <AvatarImage src={avatarUrl} alt="avatar image" />
+                    <AnchorHitbox to="/">{title}</AnchorHitbox>
                 </Avatar>
                 <Title compact={compact}>{title}</Title>
                 {!compact && <Description>{intro}</Description>}
