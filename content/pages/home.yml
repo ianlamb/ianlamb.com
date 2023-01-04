@@ -2,12 +2,12 @@ name: home
 title: Ian Lamb
 intro: Senior Software Consultant @ Test Double
 social:
-  - label: Instagram
-    url: https://www.instagram.com/ianlamb32/
-  - label: GitHub
-    url: https://github.com/ianlamb
   - label: LinkedIn
     url: https://www.linkedin.com/in/ianlamb32/
+  - label: GitHub
+    url: https://github.com/ianlamb
+  - label: Instagram
+    url: https://www.instagram.com/ianlamb32/
 quotes:
   - quote: Instead of cursing the darkness, light a candle.
     author: Benjamin Franklin
