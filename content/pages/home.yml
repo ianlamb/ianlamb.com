@@ -39,5 +39,5 @@ travel:
     value: 6
     max: 10
   - label: American States Visited
-    value: 21
+    value: 23
     max: 50
