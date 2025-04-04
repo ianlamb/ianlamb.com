@@ -1,5 +1,6 @@
 # ianlamb.com
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/de956404-7b64-4a3e-8ace-9bdb7ccf980b/deploy-status)](https://app.netlify.com/sites/mystifying-varahamihira-e64720/deploys)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 2022 refresh of my personal website using Gatsby + Netlify CMS.
